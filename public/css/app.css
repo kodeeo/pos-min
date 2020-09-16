@@ -30763,16 +30763,13 @@ nav.bottom .logo_area a img {
   transition: 0.8s;
 }
 
-nav.bottom .nav_section .menu_area ul li {
+nav.bottom ul li a {
+  padding: 1rem 1rem;
   transition: 0.8s;
 }
 
-nav.sticky .nav_section .menu_area ul li {
-  transition: 0.8s;
-}
-
-nav.bottom .nav_section .logIn_area .login_button a {
-  padding: 1.25rem 2rem;
+nav.sticky ul li a {
+  padding: 1rem 1rem;
   transition: 0.8s;
 }
 
@@ -30790,8 +30787,13 @@ nav.sticky .nav_section {
   transition: 0.8s;
 }
 
-nav.sticky .nav_section .logIn_area .login_button a {
+nav.bottom .nav_section .logIn_area .login_button a {
   padding: 1rem 1.25rem;
+  transition: 0.8s;
+}
+
+nav.sticky .nav_section .logIn_area .login_button a {
+  padding: 1rem 1rem;
   transition: 0.8s;
 }
 
@@ -30819,8 +30821,8 @@ nav .logo_area a img {
   transition: 0.5s;
 }
 
-.heading_section P {
-  padding: 0 400px;
+.heading_section p {
+  padding: 0 25%;
 }
 
 /*===========2============*/
@@ -30971,6 +30973,85 @@ footer .wave img {
   left: 0;
   background: #000000bd;
   z-index: -1;
+}
+
+/* Normal desktop :1200px. */
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+  nav.bottom ul li a {
+    transition: 0.8s;
+  }
+
+  nav.sticky ul li a {
+    transition: 0.8s;
+  }
+}
+
+/* Normal desktop :992px. */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  nav.bottom ul li a {
+    transition: 0.8s;
+  }
+
+  nav.sticky ul li a {
+    transition: 0.8s;
+  }
+}
+
+/* Tablet desktop :768px. */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  nav.bottom ul li a {
+    transition: 0.8s;
+  }
+
+  nav.sticky ul li a {
+    transition: 0.8s;
+  }
+}
+
+/* small mobile :320px. */
+
+/* Large Mobile :480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .banner_area:before {
+    width: 100%;
+    height: 100%;
+  }
+
+  nav.bottom {
+    transition: 0.8s;
+  }
+
+  nav.bottom .logo_area a img {
+    transition: 0.8s;
+  }
+
+  nav.bottom ul li a {
+    transition: 0.8s;
+  }
+
+  nav.sticky ul li a {
+    transition: 0.8s;
+  }
+
+  nav.bottom .nav_section .logIn_area .login_button a {
+    transition: 0.8s;
+  }
+
+  nav.sticky .logo_area a img {
+    transition: 0.8s;
+  }
+
+  nav.sticky .nav_section {
+    transition: 0.8s;
+  }
+
+  nav.sticky .nav_section .logIn_area .login_button a {
+    transition: 0.8s;
+  }
 }
 
 @media (min-width: 640px){

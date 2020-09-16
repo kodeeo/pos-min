@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>laravel mix</title>
+    <title>Pos-min</title>
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
 </head>
-<body>
+<body style="outline: 1px solid red">
 <!--heading_area start-->
 <section id="section-1">
     <header class="heading_area">
@@ -27,24 +27,24 @@
                     </div>
                     <div class="logIn_area w-1/4 flex justify-end ">
                         <div class="login_button mt-2">
-                            <a href="{{route('login')}}" class="block px-8 py-5 border-2 transition duration-500 hover:bg-transparent hover:border-casablanca-500 hover:text-casablanca-500 ease-in-out border-transparent rounded text-casablanca-900 uppercase bg-casablanca-500" style="margin-right: 44px;">login</a>
+                            <a href="{{route('login')}}" class="bg-casablanca-500 stic block border-2 border-transparent duration-500 ease-in-out hover:bg-transparent hover:border-casablanca-500 hover:text-casablanca-500 lg:px-5 lg:py-4 md:px-5 md:py-4 rounded sm:px-4 sm:py-3 text-casablanca-900 transition uppercase sm:text-xs md:text-sm lg:text-lg" style="margin-right: 44px;">login</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <div class="container mx-auto">
-                <div class="banner_wrapper pt-40">
+                <div class="banner_wrapper lg:pt-40 md:pt-24">
                     <!--heading section-->
                     <div class="heading_section">
-                        <h1 class=" text-6xl  justify-center font-semibold text-casablanca-500 px-56">
+                        <h1 class="  text-center lg:text-6xl md:text-3xl sm:text-3xl text-casablanca-500 ">
                             Painless cron job scheduler &<br/>
                             <span class="text-center block">monitoring service</span>
                         </h1>
-                        <p class="text-sm text-casablanca-600 block text-center m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolores molestias officia reprehenderit veritatis!</p>
+                        <p class="lg:text-sm md:text-sm sm:text-sm text-casablanca-600 text-center text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolores molestias officia reprehenderit veritatis!</p>
                     </div>
                     <!--section button-->
                     <div class="section_button  mt-10 justify-center flex">
-                        <a href="#" class="block mt-5 px-5 py-5 rounded uppercase text-casablanca-500 border-2 border-casablanca-500 bg-transparent hover:bg-casablanca-500 hover:text-casablanca-900 transition duration-500">Start your free 7-day trial</a>
+                        <a href="#" class="bg-transparent block border-2 border-casablanca-500 duration-500 hover:bg-casablanca-500 hover:text-casablanca-900 lg:mt-5 lg:px-5 lg:py-5 md:mt-3 md:px-3 md:py-3 mt-5 rounded sm:mt-2 sm:px-2 sm:py-2 text-casablanca-500 transition uppercase">Start your free 7-day trial</a>
                     </div>
                 </div>
             </div>
@@ -60,10 +60,10 @@
                 <h1 class="flex justify-center text-4xl font-bold text-whiteblue">What's included? </h1>
                 <p class="flex justify-center text-sm text-seagull-700">Everything you need to schedule and monitor your background jobs without writing any code.</p><span class="flex justify-center text-sm text-seagull-700">  Focus on your application, and we will handle the scheduling part.</span>
             </div>
-            <div class="features flex mt-10 grid grid-cols-3 ">
+            <div class="features flex grid lg:grid-cols-3 md:grid-cols-2 mt-10 sm:grid-cols-1">
                 <div class="features_item px-5 py-5">
                     <div class="features_ico">
-                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="100px" width="100px">
+                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="30%" width="30%">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                     </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="features_item px-5 py-5">
                     <div class="features_ico">
-                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="100px" width="100px">
+                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="30%" width="30%">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                     </div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="features_item px-5 py-5">
                     <div class="features_ico">
-                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="100px" width="100px">
+                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="30%" width="30%">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                     </div>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="features_item px-5 py-5">
                     <div class="features_ico">
-                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="100px" width="100px">
+                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="30%" width="30%">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                     </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="features_item px-5 py-5">
                     <div class="features_ico">
-                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="100px" width="100px">
+                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="30%" width="30%">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                     </div>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="features_item px-5 py-5">
                     <div class="features_ico">
-                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="100px" width="100px">
+                        <svg class="text-seagull-100 bg-whiteblue px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="30%" width="30%">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                         </svg>
                     </div>
@@ -147,18 +147,18 @@
 <section id="section-3">
     <div class="work_section pt-5 pb-5 " style="background-image: url(src/img/work_section_2.jpg);">
         <div class="container mx-auto">
-            <div class="work_wrapper pb-10">
+            <div class="work_wrapper">
                 <div class="work_heading">
-                    <h1 class="flex justify-center text-atlantis-500 text-4xl font-bold text-seagull-500 pb-10">How does it work?</h1>
+                    <h1 class="flex font-bold justify-center lg:text-4xl md:pb-1 md:text-2xl text-atlantis-500 text-seagull-500">How does it work?</h1>
                 </div>
-                <div class="work_section_1 pb-20 pr-10 overflow-hidden">
-                    <div class="work_article pl-20 w-1/2 float-left">
-                        <div class="article_part  pt-10 pb-10">
-                            <h1 class="text-3xl bold py-2 text-atlantis-500">Job Scheduler</h1>
+                <div class=" work_section_1 overflow-hidden ">
+                    <div class="float-left lg:pl-20 lg:w-1/2 md:pl-20 md:w-full pl-20 w-1/2 work_article">
+                        <div class="article_part lg:py-10 md:py-4">
+                            <h1 class="bold lg:py-2 lg:text-3xl md:text-2xl text-atlantis-500">Job Scheduler</h1>
                             <p class="text-atlantis-700">Do you want to automate tasks but don't want to handle all the</p>
                             <span class="text-atlantis-700">complicated job scheduling part?</span>
                         </div>
-                        <div class="article_items pb-10">
+                        <div class="article_items lg:pb-10 md:pb-3">
                             <div class="article_ico">
                                 <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
@@ -171,7 +171,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="article_items pb-10">
+                        <div class="article_items lg:pb-10 md:pb-3">
                             <div class="article_ico">
                                 <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="article_items pb-10">
+                        <div class="article_items lg:pb-10 md:pb-3">
                             <div class="article_ico">
                                 <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
@@ -198,66 +198,67 @@
                             </div>
                         </div>
                     </div>
-                    <div class="work_img  w-1/2 float-left ">
-                        <div class="work_img_wrapper pt-10 pl-20">
+                    <div class="flex float-left justify-center lg:w-1/2 work_img">
+                        <div class="flex lg:pt-16 lg:w-3/4 work_img_wrapper">
                             <img class="rounded-lg" src="src/img/sample.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="work_section_2 pb-20 pr-10  overflow-hidden">
-                    <div class="work_img w-1/2 float-left ">
-                        <div class="work_img_wrapper pt-10 pl-10">
-                            <img class="rounded-lg" src="src/img/sample.png" alt="">
-                        </div>
-                    </div>
-                    <div class="work_article  w-1/2 float-left" style="padding-left:120px">
-                        <div class="article_part  pt-10 pb-10">
-                            <h1 class="text-3xl bold py-2 text-atlantis-600">Job Scheduler</h1>
-                            <p class="text-atlantis-700">Do you want to automate tasks but don't want to handle all the</p>
-                            <span class="text-atlantis-700">complicated job scheduling part?</span>
-                        </div>
-                        <div class="article_items pb-10">
-                            <div class="article_ico">
-                                <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="flex">
-                                <div class="article_describe pl-10">
-                                    <h1 class="text-atlantis-600">1. Set your schedule</h1>
-                                    <p class="text-atlantis-700">We support time intervals and cron expressions.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="article_items pb-10">
-                            <div class="article_ico">
-                                <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="flex">
-                                <div class="article_describe pl-10">
-                                    <h1 class="text-atlantis-600">1. Set your schedule</h1>
-                                    <p class="text-atlantis-700">We support time intervals and cron expressions.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="article_items pb-10">
-                            <div class="article_ico">
-                                <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="flex">
-                                <div class="article_describe pl-10">
-                                    <h1 class="text-atlantis-600">1. Set your schedule</h1>
-                                    <p class="text-atlantis-700">We support time intervals and cron expressions.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!--            ===================================work_section_2=========-->
+                <div class=" work_section_2 lg:pb-20 lg:pr-10 overflow-hidden ">
+                    <div class="lg:float-right lg:pl-20 lg:w-1/2 md:float-left md:pl-20 md:w-full pl-20 work_article">
+                        <div class="article_part lg:py-10 md:py-4">
+                            <h1 class="bold lg:py-2 lg:text-3xl md:text-2xl text-atlantis-500">Job Scheduler</h1>
+                            <p class="text-atlantis-700">Do you want to automate tasks but don't want to handle all the</p>
+                            <span class="text-atlantis-700">complicated job scheduling part?</span>
+                        </div>
+                        <div class="article_items lg:pb-10 md:pb-3">
+                            <div class="article_ico">
+                                <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="flex">
+                                <div class="article_describe pl-10">
+                                    <h1 class="text-atlantis-600">1. Set your schedule</h1>
+                                    <p class="text-atlantis-700">We support time intervals and cron expressions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article_items lg:pb-10 md:pb-3">
+                            <div class="article_ico">
+                                <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="flex">
+                                <div class="article_describe pl-10">
+                                    <h1 class="text-atlantis-600">1. Set your schedule</h1>
+                                    <p class="text-atlantis-700">We support time intervals and cron expressions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article_items lg:pb-10 md:pb-3">
+                            <div class="article_ico">
+                                <svg class="text-seagull-100 bg-atlantis-600 px-3 py-3 rounded-lg float-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="50px" width="50px">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="flex">
+                                <div class="article_describe pl-10">
+                                    <h1 class="text-atlantis-600">1. Set your schedule</h1>
+                                    <p class="text-atlantis-700">We support time intervals and cron expressions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex lg:float-left justify-center lg:w-1/2 work_img">
+                        <div class="flex lg:pt-16 lg:w-3/4 work_img_wrapper">
+                            <img class="rounded-lg" src="src/img/sample.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div><!--work_section end-->
