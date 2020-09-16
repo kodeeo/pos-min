@@ -1,4 +1,3 @@
-
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/regular.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
@@ -6,6 +5,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html{
     scroll-behavior: smooth;
 }
@@ -55,22 +55,21 @@ nav.bottom .logo_area a img {
 
 }
 
-nav.bottom .nav_section .menu_area ul li{
+nav.bottom ul li a{
+    padding: 1rem 1rem;
     transition: 0.8s;
 
 }
-nav.sticky .nav_section .menu_area ul li{
+nav.sticky ul li a{
+    padding: 1rem 1rem;
     transition: 0.8s;
 
-}
-nav.bottom .nav_section .logIn_area .login_button a{
-    padding: 1.25rem 2rem;
-    transition: 0.8s;
 }
 nav.bottom .nav_section .logIn_area .login_button{
     margin-top: 0.5rem;
 
 }
+
 nav.sticky .logo_area a img {
     width: 30%;
     transition: 0.8s;
@@ -80,9 +79,14 @@ nav.sticky .nav_section {
     padding: 5px 0;
     transition: 0.8s;
 }
-nav.sticky .nav_section .logIn_area .login_button a {
+nav.bottom .nav_section .logIn_area .login_button a {
     padding: 1rem 1.25rem;
     transition: 0.8s;
+}
+nav.sticky .nav_section .logIn_area .login_button a{
+    padding: 1rem 1rem;
+    transition: 0.8s;
+
 }
 //======================sticky
 nav .logo_area a img {
@@ -117,8 +121,8 @@ nav .logo_area a img {
     border-bottom:2px solid #F4B346;
     transition: .5s;
 }
-.heading_section P{
-    padding:0 400px;
+.heading_section p{
+    padding: 0 25%;
 }
 /*===========2============*/
 .section_area .features_heading p {
@@ -241,4 +245,91 @@ footer .wave img {
     left: 0;
     background:#000000bd;
     z-index: -1;
+}
+//===============================responsive========================================-
+
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    nav.bottom ul li a{
+
+        transition: 0.8s;
+    }
+    nav.sticky ul li a{
+
+        transition: 0.8s;
+    }
+}
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+    nav.bottom ul li a{
+
+        transition: 0.8s;
+    }
+    nav.sticky ul li a{
+
+        transition: 0.8s;
+    }
+}
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    nav.bottom ul li a{
+
+        transition: 0.8s;
+    }
+    nav.sticky ul li a{
+        transition: 0.8s;
+    }
+}
+/* small mobile :320px. */
+@media (max-width: 367px) {
+
+
+}
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .banner_area:before{
+
+        width: 100%;
+        height: 100%;
+
+    }
+
+    nav.bottom{
+        transition: 0.8s;
+    }
+    nav.bottom .logo_area{
+    }
+
+    nav.bottom .logo_area a img {
+        transition: 0.8s;
+    }
+
+    nav.bottom ul li a{
+
+        transition: 0.8s;
+    }
+    nav.sticky ul li a{
+        transition: 0.8s;
+
+    }
+    nav.bottom .nav_section .logIn_area .login_button a{
+        transition: 0.8s;
+    }
+    nav.bottom .nav_section .logIn_area .login_button{
+
+    }
+    nav.sticky .logo_area a img {
+        transition: 0.8s;
+
+    }
+    nav.sticky .nav_section {
+        transition: 0.8s;
+    }
+    nav.sticky .nav_section .logIn_area .login_button a {
+        transition: 0.8s;
+    }
+
 }
