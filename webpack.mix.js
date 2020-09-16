@@ -1,4 +1,6 @@
 const mix = require('laravel-mix');
+//tailwind
+let tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +13,14 @@ const mix = require('laravel-mix');
  |
  */
 
+
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        autoprefixer: require('autoprefixer'),
+        processCssUrls: false,
+        postCss: [tailwindcss('./tailwind.config.js')],
+    })
+    .copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
+
+

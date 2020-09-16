@@ -1,14 +1,244 @@
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/brands.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html{
+    scroll-behavior: smooth;
+}
+.banner_area{
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    z-index: 1;
+    color: #ffffff;
+}
+.banner_area:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background:#000000c9;
+    z-index: -1;
+}
+//======================sticky
+nav{
+    position: fixed;
+    width: 100%;
 
-// Variables
-@import 'variables';
+}
+nav ul li a{
+    padding: 1.15rem 1.15rem;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+}
+nav.sticky{
+    background: #1a202c;
+    position: fixed;
+}
+nav.bottom{
+    transition: 0.8s;
+}
+nav.bottom .logo_area{
+    margin-top: 0.5rem;
+}
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+nav.bottom .logo_area a img {
+    width: 45%;
+    transition: 0.8s;
+
+}
+
+nav.bottom .nav_section .menu_area ul li{
+    transition: 0.8s;
+
+}
+nav.sticky .nav_section .menu_area ul li{
+    transition: 0.8s;
+
+}
+nav.bottom .nav_section .logIn_area .login_button a{
+    padding: 1.25rem 2rem;
+    transition: 0.8s;
+}
+nav.bottom .nav_section .logIn_area .login_button{
+    margin-top: 0.5rem;
+
+}
+nav.sticky .logo_area a img {
+    width: 30%;
+    transition: 0.8s;
+
+}
+nav.sticky .nav_section {
+    padding: 5px 0;
+    transition: 0.8s;
+}
+nav.sticky .nav_section .logIn_area .login_button a {
+    padding: 1rem 1.25rem;
+    transition: 0.8s;
+}
+//======================sticky
+nav .logo_area a img {
+    width: 45%;
+}
+.menu_area {
+    display: inline-block;
+    color: #F4B346;
+    text-decoration: none;
+}
+
+//.menu_area li::after{
+//    content: '';
+//    display: block;
+//    width: 0;
+//    height: 2px;
+//    background: #F4B346;
+//    transition: width .3s;
+//}
+//.menu_area li:hover::after{
+//    width: 100%;
+//    transition: width .3s;
+//}
+.menu_area a.active{
+    border-bottom: 2px solid #F4B346;
+    transition: .5s;
+}
+.menu_area a{
+    border-bottom:2px solid transparent ;
+}
+.menu_area a:hover{
+    border-bottom:2px solid #F4B346;
+    transition: .5s;
+}
+.heading_section P{
+    padding:0 400px;
+}
+/*===========2============*/
+.section_area .features_heading p {
+    padding: 0 300px;
+}
+/*=========3===========*/
+.work_section{
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    z-index: -9;
+    color: #ffffff;
+}
+.work_section:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background:#000000d6;
+    z-index: -1;
+}
+/*==========*/
+/* Tab content - closed */
+.tab-content {
+    max-height: 0;
+    -webkit-transition: all ease-in-out 0.7s;
+    -o-transition: all ease-in-out 0.7s;
+    transition: all ease-in-out 0.7s;
+}
+/* :checked - resize to full height */
+.tab input:checked ~ .tab-content {
+    max-height: 100vh;
+}
+/* Label formatting when open */
+.tab input:checked + label{
+    /*!*@apply text-xl p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*!*/
+    /*font-size: 1.25rem; !*.text-xl*!*/
+    /*padding: 1.25rem; !*.p-5*!*/
+    /*border-left-width: 2px; !*.border-l-2*!*/
+    /*border-color: #6574cd; !*.border-indigo*!*/
+    /*background-color: #f8fafc; !*.bg-gray-100 *!*/
+    /*color: #6574cd; !*.text-indigo*!*/
+
+}
+/* Icon */
+.tab label::after {
+    float:right;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    text-align: center;
+    -webkit-transition: all ease-in-out  0.7s;
+    -o-transition: all ease-in-out  0.7s;
+    transition: all ease-in-out  0.7s;
+}
+/* Icon formatting - closed */
+.tab input[type=checkbox] + label::after {
+    content: "+";
+    font-weight:bold; /*.font-bold*/
+    /*border-width: 1px; !*.border*!*/
+    /*border-radius: 9999px; !*.rounded-full *!*/
+    /*border-color: #b8c2cc; !*.border-grey*!*/
+}
+.tab input[type=radio] + label::after {
+    content: "\25BE";
+    font-weight:bold; /*.font-bold*/
+    border-width: 1px; /*.border*/
+    border-radius: 9999px; /*.rounded-full */
+    border-color: #b8c2cc; /*.border-grey*/
+}
+/* Icon formatting - open */
+.tab input[type=checkbox]:checked + label::after {
+    transform: rotate(315deg);
+    /*background-color: #6574cd; !*.bg-indigo*!*/
+    /*color: #f8fafc; !*.text-grey-lightest*!*/
+}
+.tab input[type=radio]:checked + label::after {
+    transform: rotateX(180deg);
+    /*background-color: #6574cd; !*.bg-indigo*!*/
+    /*color: #f8fafc; !*.text-grey-lightest*!*/
+}
+.question_item:last-child {
+    border-bottom: 2px solid #40786C;
+}
+footer{
+    position: relative;
+    z-index: 1;
+
+}
+footer .wave img {
+    position: absolute;
+    top: 127px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}
+.footer_area{
+    background-image: url("img/footer_end.jpg");
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    z-index: -9;
+    color: #ffffff;
+}
+.footer_area:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background:#000000bd;
+    z-index: -1;
 }

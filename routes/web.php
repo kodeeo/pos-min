@@ -19,6 +19,9 @@ Route::post('/do_login', 'UserController@doLogin')->name('do.login');
 Route::get('/register', 'UserController@register')->name('register');
 Route::post('/do_register', 'UserController@doRegister')->name('do.register');
 
+//landing page
+Route::get('/', 'DashboardController@landing')->name('landing');
+
 //email verification
 Route::get('/verify/{token}', 'UserController@verifyEmail')->name('verify');
 
@@ -33,7 +36,7 @@ Route::post('/forgot-password/update', 'ForgotPasswordController@update')->name(
 // Admin Group
 Route::group(['as'=>'admin.', 'middleware' => 'auth' ], function(){
 
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::get('/logout', 'UserController@logout')->name('logout');
     Route::resource('employee', 'EmployeeController');
