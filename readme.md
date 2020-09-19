@@ -1,5 +1,6 @@
 # Pos-mini
 
+![build status](https://github.com/kodeeo/pos-min/workflows/production/badge.svg)
 
 ## Installation
 
