@@ -129,7 +129,7 @@ class InvoiceController extends Controller
                 //return $order;
                 $order_details = OrderDetail::with('product')->where('order_id', $order_id)->get();
                 //return $order_details;
-                $company = Setting::latest()->first();
+                $company = Setting::where('user_id', auth()->user()->id)->first();
                 return view('admin.order.print', compact('order_details', 'order', 'company'));
 
             }

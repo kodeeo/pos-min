@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Setting;
 use App\Stock;
 use Brian2694\Toastr\Facades\Toastr;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class CartController extends Controller
 {
@@ -39,16 +42,17 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $stock = Stock::where('product_id',$request->input('id'))->first();
+        $stock = Stock::where('product_id', $request->input('id'))->first();
+        $setting = Setting::where('user_id', auth()->user()->id)->first();
+        config()->set('cart.tax', $setting->tax);
 
-        if($stock)
-        {
+        if ($stock) {
             if ($stock->quantity > $request->input('qty')) {
                 $inputs = $request->except('_token');
                 $rules = [
-                    'id'    => 'required | integer',
-                    'name'  => 'required',
-                    'qty'   => 'required',
+                    'id' => 'required | integer',
+                    'name' => 'required',
+                    'qty' => 'required',
                     'price' => 'required',
                 ];
                 $validator = Validator::make($inputs, $rules);
@@ -62,7 +66,7 @@ class CartController extends Controller
                 $price = $request->input('price');
                 $productStock = $request->input('stock');
 
-                $add = Cart::add(['id' => $id, 'name' => $name, 'qty' => $qty, 'price' => $price, 'stock'=>$productStock, 'weight' => 1]);
+                $add = Cart::add(['id' => $id, 'name' => $name, 'qty' => $qty, 'price' => $price, 'stock' => $productStock, 'weight' => 1]);
                 if ($add) {
                     Toastr::success('Product successfully added to cart', 'Success');
                     return redirect()->back();
@@ -72,12 +76,11 @@ class CartController extends Controller
                     Toastr::error('Product not added to cart', 'Error');
                     return redirect()->back();
                 }
-            }else
-            {
+            } else {
                 Toastr::error('You do not have enough stock', 'Error');
                 return redirect()->back();
             }
-        }else{
+        } else {
             Toastr::error('You do not have enough stock', 'Error');
             return redirect()->back();
         }

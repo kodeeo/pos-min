@@ -10,6 +10,7 @@ use App\Setting;
 use Brian2694\Toastr\Facades\Toastr;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use League\Flysystem\Config;
 
 class PosController extends Controller
 {
@@ -20,6 +21,7 @@ class PosController extends Controller
      */
     public function index()
     {
+
         $products = Product::with('category')->where('user_id',auth()->user()->id)->get();
         $customers = Customer::where('user_id',auth()->user()->id)->get();
         $cart_products = Cart::content();
