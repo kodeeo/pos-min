@@ -44,7 +44,7 @@
                         <div class="col-sm-4 invoice-col">
                             From
                             <address>
-                                <strong>Admin, {{ config('app.name') }}</strong><br>
+                                <strong>{{ $company->name }}</strong><br>
                                 {{ $company->address }}<br>
                                 {{ $company->city }} - {{ $company->zip_code }}, {{ $company->country }}<br>
                                 Phone: (+880) {{ $company->mobile }} {{ $company->phone !== null ? ', +88'.$company->phone : ''  }}<br>
@@ -115,7 +115,7 @@
                                         <td class="text-right">{{ Cart::subtotal() }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Tax (21%)</th>
+                                        <th>Tax ({{ $company->tax }}%)</th>
                                         <td class="text-right">{{ Cart::tax() }}</td>
                                     </tr>
                                     <tr>
