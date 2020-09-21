@@ -129,6 +129,9 @@ class UserController extends Controller
 
     public function login()
     {
+        if (auth()->check()){
+            return redirect()->intended(route('admin.dashboard'));
+        }
         return view('auth.login');
     }
 
@@ -175,6 +178,9 @@ class UserController extends Controller
 
     public function register()
     {
+        if (auth()->check()){
+            return redirect()->intended(route('admin.dashboard'));
+        }
         return view('auth.register');
     }
 

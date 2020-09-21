@@ -1,0 +1,28 @@
+name: production
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  master-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy to production
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.REMOTE_USER }}
+          host: ${{ secrets.REMOTE_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.APP_PATH }}
+            git checkout master
+            git pull origin master
+            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --ignore-platform-reqs
+            php artisan migrate --force
+            php artisan cache:clear
+            php artisan config:cache
+            php artisan route:cache

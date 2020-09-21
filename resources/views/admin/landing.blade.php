@@ -15,7 +15,7 @@
             <nav class="desktop-nav invisible lg:visible md:visible">
                 <div class="flex nav_section pt-5">
                     <div class="logo_area w-1/4 mt-2">
-                        <a href="http://localhost:63342/laravelmix/index.html" class="pt-10"><img src="src/img/pos.png" class="w-1/2" alt=""></a>
+                        <a class="pt-10"><img src="src/img/pos.png" class="w-1/2" alt=""></a>
                     </div>
                     <div id="acitve_feature" class="menu_area w-2/4 text-casablanca-500  capitalize" >
                         <ul class="inline-block flex justify-center">

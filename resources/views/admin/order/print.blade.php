@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h4>
-                                <i class="fa fa-globe"></i> {{ config('app.name') }}
+                                <i class="fa fa-globe"></i> {{$company->name }}
                                 <small class="float-right">Date: {{ date('l, d-M-Y h:i:s A') }}</small>
                             </h4>
                         </div>
@@ -44,10 +44,10 @@
                         <div class="col-sm-4 invoice-col">
                             From
                             <address>
-                                <strong>Admin, {{ config('app.name') }}</strong><br>
+                                <strong>{{$company->name }}</strong><br>
                                 {{ $company->address }}<br>
                                 {{ $company->city }} - {{ $company->zip_code }}, {{ $company->country }}<br>
-                                Phone: (+880) {{ $company->mobile }} {{ $company->phone !== null ? ', +880'.$company->phone : ''  }}<br>
+                                Phone: (+880) {{ $company->mobile }} {{ $company->phone !== null ? ', (+880)'.$company->phone : ''  }}<br>
                                 Email: {{ $company->email }}
                             </address>
                         </div>
@@ -134,7 +134,7 @@
                                         <td class="text-right">{{ number_format($order->sub_total, 2) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Tax (22%)</th>
+                                        <th>Tax ({{ $company->tax }}%)</th>
                                         <td class="text-right">{{ number_format($order->vat, 2) }}</td>
                                     </tr>
                                     <tr>

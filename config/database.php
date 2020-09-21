@@ -44,7 +44,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'italbangla'),
+            'database' => env('DB_DATABASE', 'kodeeo_pos_min'),
             'username' => env('DB_USERNAME', 'kodeeo_web1'),
             'password' => env('DB_PASSWORD', '!k00d30w3b!'),
             'unix_socket' => env('DB_SOCKET', ''),
