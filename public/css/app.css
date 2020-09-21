@@ -30745,59 +30745,59 @@ nav ul li a {
   padding: 1.15rem 1.15rem;
 }
 
-nav.sticky {
+nav.desktop-nav.sticky {
   background: #1a202c;
   position: fixed;
 }
 
-nav.bottom {
+nav.desktop-nav.bottom {
   transition: 0.8s;
 }
 
-nav.bottom .logo_area {
+nav.desktop-nav.bottom .logo_area {
   margin-top: 0.5rem;
 }
 
-nav.bottom .logo_area a img {
+nav.desktop-nav.bottom .logo_area a img {
   width: 45%;
   transition: 0.8s;
 }
 
-nav.bottom ul li a {
+nav.desktop-nav.bottom ul li a {
   padding: 1rem 1rem;
   transition: 0.8s;
 }
 
-nav.sticky ul li a {
+nav.desktop-nav.sticky ul li a {
   padding: 1rem 1rem;
   transition: 0.8s;
 }
 
-nav.bottom .nav_section .logIn_area .login_button {
+nav.desktop-nav.bottom .nav_section .logIn_area .login_button {
   margin-top: 0.5rem;
 }
 
-nav.sticky .logo_area a img {
-  width: 30%;
+nav.desktop-nav.sticky .logo_area a img {
+  width: 38%;
   transition: 0.8s;
 }
 
-nav.sticky .nav_section {
+nav.desktop-nav.sticky .nav_section {
   padding: 5px 0;
   transition: 0.8s;
 }
 
-nav.bottom .nav_section .logIn_area .login_button a {
+nav.desktop-nav.bottom .nav_section .logIn_area .login_button a {
   padding: 1rem 1.25rem;
   transition: 0.8s;
 }
 
-nav.sticky .nav_section .logIn_area .login_button a {
+nav.desktop-nav.sticky .nav_section .logIn_area .login_button a {
   padding: 1rem 1rem;
   transition: 0.8s;
 }
 
-nav .logo_area a img {
+nav.desktop-nav .logo_area a img {
   width: 45%;
 }
 
@@ -30975,14 +30975,22 @@ footer .wave img {
   z-index: -1;
 }
 
+.responsive-img a img {
+  position: absolute;
+  right: 0px;
+  top: 4px;
+  width: 30%;
+  padding-top: 5px;
+}
+
 /* Normal desktop :1200px. */
 
 @media (min-width: 1200px) and (max-width: 1500px) {
-  nav.bottom ul li a {
+  nav.desktop-nav.bottom ul li a {
     transition: 0.8s;
   }
 
-  nav.sticky ul li a {
+  nav.desktop-nav.sticky ul li a {
     transition: 0.8s;
   }
 }
@@ -30990,11 +30998,11 @@ footer .wave img {
 /* Normal desktop :992px. */
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  nav.bottom ul li a {
+  nav.desktop-nav.bottom ul li a {
     transition: 0.8s;
   }
 
-  nav.sticky ul li a {
+  nav.desktop-nav.sticky ul li a {
     transition: 0.8s;
   }
 }
@@ -31002,16 +31010,23 @@ footer .wave img {
 /* Tablet desktop :768px. */
 
 @media (min-width: 768px) and (max-width: 991px) {
-  nav.bottom ul li a {
+  nav.desktop-nav.bottom ul li a {
     transition: 0.8s;
   }
 
-  nav.sticky ul li a {
+  nav.desktop-nav.sticky ul li a {
     transition: 0.8s;
   }
 }
 
 /* small mobile :320px. */
+
+@media (max-width: 367px) {
+  nav.desktop-nav.sticky {
+    background: none;
+    transition: none;
+  }
+}
 
 /* Large Mobile :480px. */
 
@@ -31021,37 +31036,99 @@ footer .wave img {
     height: 100%;
   }
 
-  nav.bottom {
-    transition: 0.8s;
+  nav.desktop-nav.sticky {
+    background: none;
+    transition: none;
   }
+}
 
-  nav.bottom .logo_area a img {
-    transition: 0.8s;
-  }
+.nav-container {
+  position: relative;
+  display: inline-block;
+  max-width: 45px;
+  max-height: 45px;
+  overflow: visible;
+  outline: none;
+}
 
-  nav.bottom ul li a {
-    transition: 0.8s;
-  }
+.nav-container.is-active .nav-toggle:before, .nav-container.is-active .nav-toggle:after {
+  box-shadow: none;
+}
 
-  nav.sticky ul li a {
-    transition: 0.8s;
-  }
+.nav-container.is-active .nav-toggle:before {
+  transform: rotate(-45deg);
+}
 
-  nav.bottom .nav_section .logIn_area .login_button a {
-    transition: 0.8s;
-  }
+.nav-container.is-active .nav-toggle:after {
+  transform: rotate(45deg);
+}
 
-  nav.sticky .logo_area a img {
-    transition: 0.8s;
-  }
+.nav-container.is-active .nav-items {
+  transform: translate(0, 0);
+}
 
-  nav.sticky .nav_section {
-    transition: 0.8s;
-  }
+.nav-container .nav-toggle {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  margin: 20px;
+  z-index: 2;
+}
 
-  nav.sticky .nav_section .logIn_area .login_button a {
-    transition: 0.8s;
-  }
+.nav-container .nav-toggle:hover {
+  cursor: pointer;
+}
+
+.nav-container .nav-toggle:before, .nav-container .nav-toggle:after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 0;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 3px;
+  background: #F4B346;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-container .nav-toggle:before {
+  box-shadow: 0 8.3333333333px 0 0 #F4B346;
+}
+
+.nav-container .nav-toggle:after {
+  box-shadow: 0 -8.3333333333px 0 0 #F4B346;
+}
+
+.nav-container .nav-items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 300px;
+  max-width: 50vw;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  padding: 80px 20px 20px 10px;
+  transition: transform 0.3s ease;
+  transform: translate(calc(-100% - 50px), 0);
+  background: #1a202c;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px 0;
+  align-content: start;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container .nav-items .nav-item {
+  padding: 10px;
+  color: #F4B346;
+  border-bottom: 1px solid #F4B346;
+  transition: 0.8s;
+  text-align: center;
+}
+
+.nav-container .nav-items .nav-item:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 640px){

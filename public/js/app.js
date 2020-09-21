@@ -49560,10 +49560,10 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 
 $(window).on("scroll", function () {
   if ($(window).scrollTop()) {
-    $('nav').addClass('sticky');
+    $('.desktop-nav').addClass('sticky');
   } else {
-    $('nav').addClass('bottom');
-    $('nav').removeClass('sticky');
+    $('.desktop-nav').addClass('bottom');
+    $('.desktop-nav').removeClass('sticky');
   }
 }); // $(document).ready(function(){
 //     // Add smooth scrolling to all links
@@ -49629,6 +49629,26 @@ function onScroll(event) {
       currLink.removeClass("active");
     }
   });
+} //humburger menu
+
+
+var nav = document.querySelector(".nav-container");
+
+if (nav) {
+  var toggle = nav.querySelector(".nav-toggle");
+
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      if (nav.classList.contains("is-active")) {
+        nav.classList.remove("is-active");
+      } else {
+        nav.classList.add("is-active");
+      }
+    });
+    nav.addEventListener("blur", function () {
+      nav.classList.remove("is-active");
+    });
+  }
 }
 
 /***/ }),
@@ -49778,8 +49798,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/jubayer/Code/pos-min/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/jubayer/Code/pos-min/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/rafiqulislamsuvo/Code/pos-min/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/rafiqulislamsuvo/Code/pos-min/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
