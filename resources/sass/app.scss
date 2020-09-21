@@ -38,58 +38,58 @@ nav ul li a{
     padding: 1.15rem 1.15rem;
 
 }
-nav.sticky{
+nav.desktop-nav.sticky{
     background: #1a202c;
     position: fixed;
 }
-nav.bottom{
+nav.desktop-nav.bottom{
     transition: 0.8s;
 }
-nav.bottom .logo_area{
+nav.desktop-nav.bottom .logo_area{
     margin-top: 0.5rem;
 }
 
-nav.bottom .logo_area a img {
+nav.desktop-nav.bottom .logo_area a img {
     width: 45%;
     transition: 0.8s;
 
 }
 
-nav.bottom ul li a{
+nav.desktop-nav.bottom ul li a{
     padding: 1rem 1rem;
     transition: 0.8s;
 
 }
-nav.sticky ul li a{
+nav.desktop-nav.sticky ul li a{
     padding: 1rem 1rem;
     transition: 0.8s;
 
 }
-nav.bottom .nav_section .logIn_area .login_button{
+nav.desktop-nav.bottom .nav_section .logIn_area .login_button{
     margin-top: 0.5rem;
 
 }
 
-nav.sticky .logo_area a img {
-    width: 30%;
+nav.desktop-nav.sticky .logo_area a img {
+    width: 38%;
     transition: 0.8s;
 
 }
-nav.sticky .nav_section {
+nav.desktop-nav.sticky .nav_section {
     padding: 5px 0;
     transition: 0.8s;
 }
-nav.bottom .nav_section .logIn_area .login_button a {
+nav.desktop-nav.bottom .nav_section .logIn_area .login_button a {
     padding: 1rem 1.25rem;
     transition: 0.8s;
 }
-nav.sticky .nav_section .logIn_area .login_button a{
+nav.desktop-nav.sticky .nav_section .logIn_area .login_button a{
     padding: 1rem 1rem;
     transition: 0.8s;
 
 }
 //======================sticky
-nav .logo_area a img {
+nav.desktop-nav .logo_area a img {
     width: 45%;
 }
 .menu_area {
@@ -97,19 +97,6 @@ nav .logo_area a img {
     color: #F4B346;
     text-decoration: none;
 }
-
-//.menu_area li::after{
-//    content: '';
-//    display: block;
-//    width: 0;
-//    height: 2px;
-//    background: #F4B346;
-//    transition: width .3s;
-//}
-//.menu_area li:hover::after{
-//    width: 100%;
-//    transition: width .3s;
-//}
 .menu_area a.active{
     border-bottom: 2px solid #F4B346;
     transition: .5s;
@@ -247,15 +234,21 @@ footer .wave img {
     z-index: -1;
 }
 //===============================responsive========================================-
-
+.responsive-img a img {
+    position: absolute;
+    right: 0px;
+    top: 4px;
+    width: 30%;
+    padding-top: 5px;
+}
 /* Normal desktop :1200px. */
 @media (min-width: 1200px) and (max-width: 1500px) {
 
-    nav.bottom ul li a{
+    nav.desktop-nav.bottom ul li a{
 
         transition: 0.8s;
     }
-    nav.sticky ul li a{
+    nav.desktop-nav.sticky ul li a{
 
         transition: 0.8s;
     }
@@ -263,11 +256,11 @@ footer .wave img {
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
 
-    nav.bottom ul li a{
+    nav.desktop-nav.bottom ul li a{
 
         transition: 0.8s;
     }
-    nav.sticky ul li a{
+    nav.desktop-nav.sticky ul li a{
 
         transition: 0.8s;
     }
@@ -275,16 +268,23 @@ footer .wave img {
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
 
-    nav.bottom ul li a{
+    nav.desktop-nav.bottom ul li a{
 
         transition: 0.8s;
     }
-    nav.sticky ul li a{
+    nav.desktop-nav.sticky ul li a{
         transition: 0.8s;
     }
 }
 /* small mobile :320px. */
 @media (max-width: 367px) {
+
+    //humbergur menu
+    nav.desktop-nav.sticky {
+        background: none;
+        transition: none;
+    }
+
 
 
 }
@@ -296,40 +296,114 @@ footer .wave img {
         height: 100%;
 
     }
+    //humbergur menu
+    nav.desktop-nav.sticky {
+        background: none;
+        transition: none;
+    }
+}
 
-    nav.bottom{
-        transition: 0.8s;
-    }
-    nav.bottom .logo_area{
+//humburger-menu
+
+$toggleSize: 25px;
+$toggleMargin: 20px;
+$toggleLine: 3px;
+$toggleColor: #F4B346;
+
+.nav-container {
+    position: relative;
+    display: inline-block;
+    max-width: $toggleSize + $toggleMargin;
+    max-height: $toggleSize + $toggleMargin;
+    overflow: visible;
+    outline: none;
+
+    //&:focus-within, &:focus {
+    &.is-active {
+        .nav-toggle {
+            &:before, &:after {
+                box-shadow: none;
+            }
+
+            &:before {
+                transform: rotate(-45deg);
+            }
+
+            &:after {
+                transform: rotate(45deg);
+            }
+        }
+
+        .nav-items {
+            transform: translate(0, 0);
+        }
     }
 
-    nav.bottom .logo_area a img {
-        transition: 0.8s;
+    .nav-toggle {
+        $offset: $toggleSize * 0.5;
+
+        position: relative;
+        width: $toggleSize;
+        height: $toggleSize;
+        margin: $toggleMargin;
+        z-index: 2;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            top: #{$offset - $toggleLine / 2};
+            left: 0;
+            transform: translate(0, 0);
+            width: 100%;
+            height: $toggleLine;
+            background: $toggleColor;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        &:before {
+            box-shadow: 0 #{$offset / 1.5} 0 0 $toggleColor;
+        }
+
+        &:after {
+            box-shadow: 0 #{-$offset / 1.5} 0 0 $toggleColor;
+        }
     }
 
-    nav.bottom ul li a{
+    .nav-items {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 300px;
+        max-width: 50vw;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        padding: 80px 20px 20px 10px;
+        transition: transform .3s ease;
+        transform: translate(calc(-100% - 50px), 0);
+        background: #1a202c;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 5px 0;
+        align-content: start;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 
-        transition: 0.8s;
-    }
-    nav.sticky ul li a{
-        transition: 0.8s;
+        .nav-item {
 
-    }
-    nav.bottom .nav_section .logIn_area .login_button a{
-        transition: 0.8s;
-    }
-    nav.bottom .nav_section .logIn_area .login_button{
+            padding: 10px;
+            color:$toggleColor;
+            border-bottom: 1px solid $toggleColor;
+            transition: 0.8s;
+            text-align: center;
 
-    }
-    nav.sticky .logo_area a img {
-        transition: 0.8s;
+            &:hover {
+                cursor: pointer;
 
+            }
+        }
     }
-    nav.sticky .nav_section {
-        transition: 0.8s;
-    }
-    nav.sticky .nav_section .logIn_area .login_button a {
-        transition: 0.8s;
-    }
-
 }

@@ -12,12 +12,12 @@
     <header class="heading_area">
         <div class="banner_area pb-16" style="background-image: url(src/img/people_service_1.jpg)">
             <!--nav section-->
-            <nav>
-                <div class="nav_section flex pt-5">
+            <nav class="desktop-nav invisible lg:visible md:visible">
+                <div class="flex nav_section pt-5">
                     <div class="logo_area w-1/4 mt-2">
                         <a class="pt-10"><img src="src/img/pos.png" class="w-1/2" alt=""></a>
                     </div>
-                    <div  id="acitve_feature" class="menu_area w-2/4 text-casablanca-500  capitalize" >
+                    <div id="acitve_feature" class="menu_area w-2/4 text-casablanca-500  capitalize" >
                         <ul class="inline-block flex justify-center">
                             <li><a href="#section-1" class="flex mb-2">home</a></li>
                             <li><a href="#section-2" class="flex mb-2  ">features</a></li>
@@ -32,19 +32,37 @@
                     </div>
                 </div>
             </nav>
+{{--            humburger menu--}}
+            <div class="nav-container visible lg:invisible md:invisible" tabindex="0">
+                <div class="nav-toggle animate-bounce"></div>
+                <nav class="nav-items">
+                    <a class="nav-item" href="#section-1">Home</a>
+                    <a class="nav-item" href="#section-2">Features</a>
+                    <a class="nav-item" href="#section-3">Docs</a>
+                    <a class="nav-item uppercase" href="#section-4">faq</a>
+                    <div class="login_button mt-2">
+                        <a href="{{route('login')}}" class="bg-casablanca-500 block flex justify-center py-4 rounded stic text-casablanca-900 transition uppercase w-full" style="margin-right: 44px;">login</a>
+                    </div>
+                </nav>
+            </div>
+{{--            for responsive--}}
+            <div class="responsive-img md:invisible lg:invisible visible">
+                <a href="http://localhost:63342/laravelmix/index.html" class="pt-10"><img src="src/img/pos.png" class="w-1/2" alt=""></a>
+            </div>
+
             <div class="container mx-auto">
                 <div class="banner_wrapper lg:pt-40 md:pt-24">
                     <!--heading section-->
                     <div class="heading_section">
-                        <h1 class="  text-center lg:text-6xl md:text-3xl sm:text-3xl text-casablanca-500 ">
+                        <h1 class="lg:pt-0 lg:text-6xl md:pt-0 md:text-3xl pt-16 sm:text-3xl text-2xl text-casablanca-500 text-center">
                             Painless cron job scheduler &<br/>
                             <span class="text-center block">monitoring service</span>
                         </h1>
-                        <p class="lg:text-sm md:text-sm sm:text-sm text-casablanca-600 text-center text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolores molestias officia reprehenderit veritatis!</p>
+                        <p class="lg:text-sm md:text-sm sm:text-sm text-casablanca-600 text-center text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolores molestias officia reprehenderit veritatis!</p>
                     </div>
                     <!--section button-->
                     <div class="section_button  mt-10 justify-center flex">
-                        <a href="#" class="bg-transparent block border-2 border-casablanca-500 duration-500 hover:bg-casablanca-500 hover:text-casablanca-900 lg:mt-5 lg:px-5 lg:py-5 md:mt-3 md:px-3 md:py-3 mt-5 rounded sm:mt-2 sm:px-2 sm:py-2 text-casablanca-500 transition uppercase">Start your free 7-day trial</a>
+                        <a href="#" class="bg-transparent block border-2 border-casablanca-500 duration-500 hover:bg-casablanca-500 hover:text-casablanca-900 lg:mt-5 lg:px-5 lg:py-5 md:mt-3 md:px-3 md:py-3 mt-5 px-5 py-3 rounded sm:mt-2 sm:px-2 sm:py-2 text-casablanca-500 transition uppercase">Start your free 7-day trial</a>
                     </div>
                 </div>
             </div>
@@ -57,7 +75,7 @@
     <div class="features_section pb-20">
         <div class="container mx-auto">
             <div class="features_heading pt-20">
-                <h1 class="flex justify-center text-4xl font-bold text-whiteblue">What's included? </h1>
+                <h1 class="flex justify-center text-4xl font-bold text-whiteblue">Whats included? </h1>
                 <p class="flex justify-center text-sm text-seagull-700">Everything you need to schedule and monitor your background jobs without writing any code.</p><span class="flex justify-center text-sm text-seagull-700">  Focus on your application, and we will handle the scheduling part.</span>
             </div>
             <div class="features flex grid lg:grid-cols-3 md:grid-cols-2 mt-10 sm:grid-cols-1">
