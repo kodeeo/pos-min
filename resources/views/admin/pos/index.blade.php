@@ -32,9 +32,11 @@
             box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
         }
 
-        .buttons {}
+        .buttons {
+        }
 
-        .operators {}
+        .operators {
+        }
 
         .operators div {
             display: inline-block;
@@ -126,7 +128,71 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6 offset-6">
+                    <div class="col-sm-6">
+                        <!-- Button trigger modal -->
+                        <button title="Calculator" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-calculator" style="font-size: 20px"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Calculator</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="" style="  width: 400px; margin: 4% auto; font-family: 'Source Sans Pro', sans-serif;letter-spacing: 5px;font-size: 1.8rem;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;">
+                                            <div class="calculator">
+                                                <div class="input" id="input"></div>
+                                                <div class="buttons">
+                                                    <div class="operators">
+                                                        <div>+</div>
+                                                        <div>-</div>
+                                                        <div>&times;</div>
+                                                        <div>&divide;</div>
+                                                    </div>
+                                                    <div class="leftPanel">
+                                                        <div class="numbers">
+                                                            <div>7</div>
+                                                            <div>8</div>
+                                                            <div>9</div>
+                                                        </div>
+                                                        <div class="numbers">
+                                                            <div>4</div>
+                                                            <div>5</div>
+                                                            <div>6</div>
+                                                        </div>
+                                                        <div class="numbers">
+                                                            <div>1</div>
+                                                            <div>2</div>
+                                                            <div>3</div>
+                                                        </div>
+                                                        <div class="numbers">
+                                                            <div>0</div>
+                                                            <div>.</div>
+                                                            <div id="clear">C</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="equal" id="result">=</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Pos</li>
@@ -335,42 +401,6 @@
                             </form>
                         </div>
                     </div>
-                    <div class="" style="  width: 400px; margin: 4% auto; font-family: 'Source Sans Pro', sans-serif;letter-spacing: 5px;font-size: 1.8rem;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;">
-                        <div class="calculator">
-                            <div class="input" id="input"></div>
-                            <div class="buttons">
-                                <div class="operators">
-                                    <div>+</div>
-                                    <div>-</div>
-                                    <div>&times;</div>
-                                    <div>&divide;</div>
-                                </div>
-                                <div class="leftPanel">
-                                    <div class="numbers">
-                                        <div>7</div>
-                                        <div>8</div>
-                                        <div>9</div>
-                                    </div>
-                                    <div class="numbers">
-                                        <div>4</div>
-                                        <div>5</div>
-                                        <div>6</div>
-                                    </div>
-                                    <div class="numbers">
-                                        <div>1</div>
-                                        <div>2</div>
-                                        <div>3</div>
-                                    </div>
-                                    <div class="numbers">
-                                        <div>0</div>
-                                        <div>.</div>
-                                        <div id="clear">C</div>
-                                    </div>
-                                </div>
-                                <div class="equal" id="result">=</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -484,7 +514,7 @@
 
         // adding click handlers to number buttons
         for (var i = 0; i < number.length; i++) {
-            number[i].addEventListener("click", function(e) {
+            number[i].addEventListener("click", function (e) {
 
                 // storing current input string and its last character in variables - used later
                 var currentString = input.innerHTML;
@@ -511,7 +541,7 @@
 
         // adding click handlers to number buttons
         for (var i = 0; i < operator.length; i++) {
-            operator[i].addEventListener("click", function(e) {
+            operator[i].addEventListener("click", function (e) {
 
                 // storing current input string and its last character in variables - used later
                 var currentString = input.innerHTML;
@@ -533,7 +563,7 @@
         }
 
         // on click of 'equal' button
-        result.addEventListener("click", function() {
+        result.addEventListener("click", function () {
 
             // this is the string that we will be processing eg. -10+26+33-56*34/23
             var inputString = input.innerHTML;
@@ -590,9 +620,9 @@
         });
 
         // clearing the input on press of clear
-        clear.addEventListener("click", function() {
+        clear.addEventListener("click", function () {
             input.innerHTML = "";
         })
-        </script>
+    </script>
 
 @endpush
