@@ -43,8 +43,8 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $stock = Stock::where('product_id', $request->input('id'))->first();
-        $setting = $setting=auth()->user()->setting;;
-        config()->set('cart.tax', $setting->tax);
+
+        config()->set('cart.tax', auth()->user()->setting->tax);
 
         if ($stock) {
             if ($stock->quantity > $request->input('qty')) {

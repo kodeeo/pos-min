@@ -39,7 +39,7 @@ class InvoiceController extends Controller
         $customer_id = 1;
         $customer = Customer::findOrFail($customer_id);
         $contents = Cart::content();
-        $company = Setting::latest()->first();
+        $company = auth()->user()->setting;
         return view('admin.invoice', compact('customer', 'contents', 'company'));
     }
 
@@ -47,7 +47,7 @@ class InvoiceController extends Controller
     {
         $customer = Customer::findOrFail($customer_id);
         $contents = Cart::content();
-        $company = Setting::latest()->first();
+        $company = auth()->user()->setting;
         return view('admin.print', compact('customer', 'contents', 'company'));
     }
 
@@ -57,7 +57,7 @@ class InvoiceController extends Controller
         //return $order;
         $order_details = OrderDetail::with('product')->where('order_id', $order_id)->get();
         //return $order_details;
-        $company = Setting::latest()->first();
+        $company = auth()->user()->setting;
         return view('admin.order.print', compact('order_details', 'order', 'company'));
     }
 
@@ -85,7 +85,7 @@ class InvoiceController extends Controller
                 $order = new Order();
 //        $order->customer_id = $request->input('customer_id');
                 $order->payment_status = $payment_status;
-                $order->user_id = auth()->user()->id;
+                $order->setting_id=auth()->user()->setting->id;
                 $order->customer_id = $customer_id;
                 $order->invoice_no = Order::invoiceNumber();
                 $order->pay = $pay;
@@ -112,9 +112,9 @@ class InvoiceController extends Controller
 
                     Stock::where('product_id', $content->id)->decrement('quantity', $content->qty);
                 }
-                $payment = Payment::create([
+                Payment::create([
                     'order_id' => $order_id,
-                    'user_id' => auth()->user()->id,
+                    'setting_id'=>auth()->user()->setting->id,
                     'method' => $request->input('method'),
                     'pay' => $pay,
                     'return' => $return,
@@ -129,7 +129,7 @@ class InvoiceController extends Controller
                 //return $order;
                 $order_details = OrderDetail::with('product')->where('order_id', $order_id)->get();
                 //return $order_details;
-                $company = Setting::where('user_id', auth()->user()->id)->first();
+                $company = auth()->user()->setting;
                 return view('admin.order.print', compact('order_details', 'order', 'company'));
 
             }

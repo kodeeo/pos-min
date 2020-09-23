@@ -22,8 +22,8 @@ class PosController extends Controller
     public function index()
     {
 
-        $products = Product::with('category')->where('user_id',auth()->user()->id)->get();
-        $customers = Customer::where('user_id',auth()->user()->id)->get();
+        $products = Product::with('category')->where('setting_id',auth()->user()->setting->id)->get();
+        $customers = Customer::where('setting_id',auth()->user()->setting->id)->get();
         $cart_products = Cart::content();
 
         return view('admin.pos.index', compact('products', 'customers', 'cart_products'));

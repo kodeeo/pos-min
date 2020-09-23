@@ -20,7 +20,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::where('user_id',auth()->user()->id)->latest()->get();
+        $customers = Customer::where('setting_id', auth()->user()->setting->id)->latest()->get();
         return view('admin.customer.index', compact('customers'));
     }
 
@@ -37,7 +37,7 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,31 +50,27 @@ class CustomerController extends Controller
         ];
 
         $validation = Validator::make($inputs, $rules);
-        if ($validation->fails())
-        {
+        if ($validation->fails()) {
             return redirect()->back()->withErrors($validation)->withInput();
         }
 
         $image = $request->file('photo');
-        $slug =  Str::slug($request->input('name'));
-        if (isset($image))
-        {
+        $slug = Str::slug($request->input('name'));
+        if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!Storage::disk('public')->exists('customer'))
-            {
+            $imageName = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            if (!Storage::disk('public')->exists('customer')) {
                 Storage::disk('public')->makeDirectory('customer');
             }
             $postImage = Image::make($image)->resize(480, 320)->stream();
-            Storage::disk('public')->put('customer/'.$imageName, $postImage);
-        } else
-        {
+            Storage::disk('public')->put('customer/' . $imageName, $postImage);
+        } else {
             $imageName = 'default.png';
         }
 
         $customer = new Customer();
         $customer->name = $request->input('name');
-        $customer->user_id = auth()->user()->id;
+        $customer->setting_id = auth()->user()->setting->id;
         $customer->email = $request->input('email');
         $customer->phone = $request->input('phone');
         $customer->address = $request->input('address');
@@ -88,7 +84,7 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Customer  $customer
+     * @param \App\Customer $customer
      * @return \Illuminate\Http\Response
      */
     public function show(Customer $customer)
@@ -99,7 +95,7 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Customer  $customer
+     * @param \App\Customer $customer
      * @return \Illuminate\Http\Response
      */
     public function edit(Customer $customer)
@@ -110,8 +106,8 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Customer  $customer
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Customer $customer
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Customer $customer)
@@ -127,32 +123,27 @@ class CustomerController extends Controller
         ];
 
         $validation = Validator::make($inputs, $rules);
-        if ($validation->fails())
-        {
+        if ($validation->fails()) {
             return redirect()->back()->withErrors($validation)->withInput();
         }
 
         $image = $request->file('photo');
-        $slug =  Str::slug($request->input('name'));
-        if (isset($image))
-        {
+        $slug = Str::slug($request->input('name'));
+        if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!Storage::disk('public')->exists('customer'))
-            {
+            $imageName = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            if (!Storage::disk('public')->exists('customer')) {
                 Storage::disk('public')->makeDirectory('customer');
             }
 
             // delete old photo
-            if (Storage::disk('public')->exists('customer/'. $customer->photo))
-            {
-                Storage::disk('public')->delete('customer/'. $customer->photo);
+            if (Storage::disk('public')->exists('customer/' . $customer->photo)) {
+                Storage::disk('public')->delete('customer/' . $customer->photo);
             }
 
             $postImage = Image::make($image)->resize(480, 320)->stream();
-            Storage::disk('public')->put('customer/'.$imageName, $postImage);
-        } else
-        {
+            Storage::disk('public')->put('customer/' . $imageName, $postImage);
+        } else {
             $imageName = $customer->photo;
         }
 
@@ -176,14 +167,13 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Customer  $customer
+     * @param \App\Customer $customer
      * @return \Illuminate\Http\Response
      */
     public function destroy(Customer $customer)
     {
-        if (Storage::disk('public')->exists('customer/'. $customer->photo))
-        {
-            Storage::disk('public')->delete('customer/'. $customer->photo);
+        if (Storage::disk('public')->exists('customer/' . $customer->photo)) {
+            Storage::disk('public')->delete('customer/' . $customer->photo);
         }
         $customer->delete();
         Toastr::success('Customer Successfully Deleted', 'Success!!!');

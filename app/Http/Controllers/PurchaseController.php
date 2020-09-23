@@ -14,16 +14,16 @@ class PurchaseController extends Controller
 {
     public function index()
     {
-        $purchases=Purchase::where('user_id',auth()->user()->id)->with('product')->with('supplier')->orderBy('id','desc')->get();
-        return view('admin.purchase.index',compact('purchases'));
+        $purchases = Purchase::where('setting_id', auth()->user()->setting->id)->with('product')->with('supplier')->orderBy('id', 'desc')->get();
+        return view('admin.purchase.index', compact('purchases'));
     }
 
     public function create()
     {
-        $products=Product::where('user_id',auth()->user()->id)->get();
-        $suppliers=Supplier::where('user_id',auth()->user()->id)->get();
+        $products = Product::where('setting_id', auth()->user()->setting->id)->get();
+        $suppliers = Supplier::where('setting_id', auth()->user()->setting->id)->get();
 
-        return view('admin.purchase.create',compact('products','suppliers'));
+        return view('admin.purchase.create', compact('products', 'suppliers'));
     }
 
     public function store(Request $request)
@@ -37,28 +37,25 @@ class PurchaseController extends Controller
         ];
 
         $validation = Validator::make($inputs, $rules);
-        if ($validation->fails())
-        {
+        if ($validation->fails()) {
             return redirect()->back()->withErrors($validation)->withInput();
         }
 
         Purchase::create([
-           'user_id'=>auth()->user()->id,
-           'product_id'=>$request->product_id,
-           'supplier_id'=>$request->supplier_id,
-           'quantity'=>$request->quantity,
-           'purchase_price'=>$request->purchase_price,
+            'setting_id' => auth()->user()->setting->id,
+            'product_id' => $request->product_id,
+            'supplier_id' => $request->supplier_id,
+            'quantity' => $request->quantity,
+            'purchase_price' => $request->purchase_price,
         ]);
-        $stock=Stock::where('product_id',$request->product_id)->first();
-        if($stock)
-        {
-            $stock->increment('quantity',$request->quantity);
-        }else
-        {
+        $stock = Stock::where('product_id', $request->product_id)->first();
+        if ($stock) {
+            $stock->increment('quantity', $request->quantity);
+        } else {
             Stock::create([
-                'user_id'=>auth()->user()->id,
-                'product_id'=>$request->product_id,
-                'quantity'=>$request->quantity,
+                'setting_id'=>auth()->user()->setting->id,
+                'product_id' => $request->product_id,
+                'quantity' => $request->quantity,
             ]);
         }
         Toastr::success('Stock Updated Successfully.', 'Success!!!');
