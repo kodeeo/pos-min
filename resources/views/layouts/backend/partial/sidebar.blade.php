@@ -310,16 +310,21 @@
                                     <p>All User</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.employee.index') }}"
+                                   class="nav-link {{ Request::is('admin/employee') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Employee</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 @else
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('admin.profile') }}"
-                           class="nav-link {{ Request::is('admin/stock') ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-user"></i>
-                            <p>
-                                Profile
-                            </p>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.employee.index') }}"
+                           class="nav-link {{ Request::is('admin/employee') ? 'active' : '' }}">
+                            <i class="fa fa-circle-o nav-icon"></i>
+                            <p>Employee</p>
                         </a>
                     </li>
                 @endif

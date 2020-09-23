@@ -15,7 +15,6 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
             $table->string('name')->default('abc');
             $table->string('address')->default('xyz');
             $table->string('email')->default('abcd@gmail.com');

@@ -20,7 +20,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting = Setting::where('user_id',auth()->user()->id)->latest()->first();
+        $setting=auth()->user()->setting;
         return view('admin.setting', compact('setting'));
     }
 

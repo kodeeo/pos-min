@@ -43,7 +43,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $stock = Stock::where('product_id', $request->input('id'))->first();
-        $setting = Setting::where('user_id', auth()->user()->id)->first();
+        $setting = $setting=auth()->user()->setting;;
         config()->set('cart.tax', $setting->tax);
 
         if ($stock) {

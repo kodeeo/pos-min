@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('admin'),
             'role' => 'admin',
             'email_verified' => 1,
+            'setting_id'=>1,
             'email_verified_at' => Carbon::now(),
             'email_verification_token' => null,
         ]);
