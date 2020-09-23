@@ -217,7 +217,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center lg:w-1/2 work_img">
-                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 w-3/4 work_img_wrapper">
+                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 pb-5 w-3/4 work_img_wrapper">
                             <img class="rounded-lg" src="src/img/sample.png" alt="">
                         </div>
                     </div>
@@ -271,7 +271,7 @@
                         </div>
                     </div>
                     <div class="flex lg:float-left justify-center lg:w-1/2 work_img">
-                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 w-3/4 work_img_wrapper">
+                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 w-3/4 pb-5 work_img_wrapper">
                             <img class="rounded-lg" src="src/img/sample.png" alt="">
                         </div>
                     </div>
