@@ -68,6 +68,9 @@ module.exports = {
                     900: '#451C11',
                 },
                 whiteblue : '#2980b9',
+                facebook :'#3890F2',
+                twitter:'#44A1F2',
+                linkedin:'#3078B6',
             }
         },
     },
