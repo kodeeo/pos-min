@@ -207,7 +207,7 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="col-xl-6  ">
                         <!-- general form elements -->
                         <div class="card">
                             <div class="card-header">
@@ -215,13 +215,13 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped text-center">
+                                <table id="example1" class=" table-responsive table table-bordered table-striped text-center">
                                     <thead>
                                     <tr>
                                         <th>Code</th>
                                         <th>Name</th>
                                         {{--                                        <th>Category</th>--}}
-                                        <th>Image</th>
+                                        <th class="d-lg-table-cell d-none d-xl-table-cell sorting">Image</th>
                                         <th>Price</th>
                                         {{--                                        <th>Product Code</th>--}}
                                         <th>Add To Cart</th>
@@ -232,7 +232,7 @@
                                         <th>Code</th>
                                         <th>Name</th>
                                         {{--                                        <th>Category</th>--}}
-                                        <th>Image</th>
+                                        <th class="d-lg-table-cell d-none d-xl-table-cell sorting">Image</th>
                                         <th>Price</th>
                                         {{--                                        <th>Product Code</th>--}}
                                         <th>Add To Cart</th>
@@ -251,7 +251,7 @@
                                                 <td>{{ $product->code }}</td>
                                                 <td>{{ $product->name }}</td>
                                                 {{--                                                <td>{{ $product->category->name }}</td>--}}
-                                                <td>
+                                                <td class="d-lg-table-cell d-none d-xl-table-cell">
                                                     <img width="40" height="40" class="img-fluid"
                                                          src="{{ URL::asset('storage/product/'. $product->image) }}"
                                                          alt="{{ $product->name }}">
@@ -277,7 +277,7 @@
                     <!--/.col (left) -->
 
                     <!-- left column -->
-                    <div class="col-md-6">
+                    <div class="col-xl-6">
                         <div class="card card-default">
                             <div class="card-header">
                                 <h3 class="card-title">
@@ -293,7 +293,7 @@
                                         No Product Added
                                     </div>
                                 @else
-                                    <table class="table table-bordered table-striped text-center mb-3">
+                                    <table class="mb-3 table table-bordered table-responsive text-center">
                                         <thead>
                                         <tr>
                                             <th>S.N</th>

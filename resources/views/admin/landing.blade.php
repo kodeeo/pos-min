@@ -217,12 +217,11 @@
                         </div>
                     </div>
                     <div class="flex justify-center lg:w-1/2 work_img">
-                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 w-3/4 work_img_wrapper">
+                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 pb-5 w-3/4 work_img_wrapper">
                             <img class="rounded-lg" src="src/img/sample.png" alt="">
                         </div>
                     </div>
                 </div>
-
                 <!--            ===================================work_section_2=========-->
                 <div class=" work_section_2 overflow-hidden ">
                     <div class="lg:float-right lg:pb-0 lg:pl-20 lg:w-1/2 md:pb-0 md:pl-20 md:w-1/2 pb-4 pl-10 sm:float-none work_article">
@@ -272,7 +271,7 @@
                         </div>
                     </div>
                     <div class="flex lg:float-left justify-center lg:w-1/2 work_img">
-                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 w-3/4 work_img_wrapper">
+                        <div class="flex lg:pt-16 lg:w-3/4 pt-5 w-3/4 pb-5 work_img_wrapper">
                             <img class="rounded-lg" src="src/img/sample.png" alt="">
                         </div>
                     </div>
@@ -359,7 +358,7 @@
                         <a class="" href="#"><span class="text-2xl"><i class="fab  fa-facebook hover:text-facebook"></i></span></a>
                         <a href="#"><span class="text-2xl" ><i class="fab  fa-linkedin hover:text-linkedin"></i></span></a>
                         <a href="#"><span class="text-2xl" ><i class="fab  fa-twitter hover:text-twitter"></i></span></a>
-{{--                        <a href="#"><span class="ml-5" ><i class="fa--f fab lg:px-3 lg:py-2 lg:text-2xl md:px-3 md:py-2 md:text-2xl px-3 py-2 rounded-full text-xs" style="background: #409DF6"></i></span></a>--}}
+{{--                    <a href="#"><span class="ml-5" ><i class="fa--f fab lg:px-3 lg:py-2 lg:text-2xl md:px-3 md:py-2 md:text-2xl px-3 py-2 rounded-full text-xs" style="background: #409DF6"></i></span></a>--}}
                     </div>
                 </div>
             </div>
