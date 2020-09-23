@@ -34,7 +34,7 @@ Route::post('/forgot-password/update', 'ForgotPasswordController@update')->name(
 
 
 // Admin Group
-Route::group(['as'=>'admin.', 'middleware' => 'auth' ], function(){
+Route::group(['as' => 'admin.', 'middleware' => 'auth'], function () {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
@@ -71,7 +71,7 @@ Route::group(['as'=>'admin.', 'middleware' => 'auth' ], function(){
 
     Route::get('sales-today', 'OrderController@today_sales')->name('sales.today');
     Route::get('sales-monthly/{month?}', 'OrderController@monthly_sales')->name('sales.monthly');
-    Route::get('sales-total','OrderController@total_sales')->name('sales.total');
+    Route::get('sales-total', 'OrderController@total_sales')->name('sales.total');
 
     Route::resource('cart', 'CartController');
 
@@ -86,15 +86,13 @@ Route::group(['as'=>'admin.', 'middleware' => 'auth' ], function(){
     Route::post('purchase/store', 'PurchaseController@store')->name('purchase.store');
 
     //barcode
-    Route::get('barcode/{id}','BarcodeController@index')->name('barcode');
+    Route::get('barcode/{id}', 'BarcodeController@index')->name('barcode');
 
     //profile
-    Route::get('profile','ProfileController@index')->name('profile');
-    Route::post('profile/edit','ProfileController@update')->name('profile.update');
-    Route::post('profile/edit/password','ProfileController@updatePassword')->name('profile.update.password');
+    Route::get('profile', 'ProfileController@index')->name('profile');
+    Route::post('profile/edit', 'ProfileController@update')->name('profile.update');
+    Route::post('profile/edit/password', 'ProfileController@updatePassword')->name('profile.update.password');
 
-    Route::group(['middleware' => 'admin'], function () {
-        Route::resource('user', 'UserController');
-    });
+    Route::resource('user', 'UserController');
 
 });

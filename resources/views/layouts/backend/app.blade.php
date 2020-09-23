@@ -31,7 +31,7 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 @php
-$setting=\App\Setting::where('user_id',auth()->user()->id)->first();
+$setting=auth()->user()->setting;
 @endphp
 <!-- Navbar -->
 @include('layouts.backend.partial.navbar')

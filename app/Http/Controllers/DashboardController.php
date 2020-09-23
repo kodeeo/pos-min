@@ -15,6 +15,7 @@ class DashboardController extends Controller
 
     public function index()
     {
+        //dd(auth()->user()->setting);
         $today_date = date('Y-m-d');
         $today = Order::where('user_id',auth()->user()->id)->whereDate('created_at', $today_date)->get();
         $yesterday = Order::where('user_id',auth()->user()->id)->whereDate('created_at', date('Y-m-d', strtotime('-1 day')))->get();
