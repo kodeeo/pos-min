@@ -120,7 +120,7 @@
 
 @section('content')
     @php
-        $setting=\App\Setting::where('user_id',auth()->user()->id)->first();
+        $setting=auth()->user()->setting;
     @endphp
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

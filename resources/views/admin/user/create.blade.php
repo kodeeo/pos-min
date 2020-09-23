@@ -17,7 +17,7 @@
                     <div class="col-sm-6 offset-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Create User</li>
+                            <li class="breadcrumb-item active">Create Employee</li>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Create User</h3>
+                                <h3 class="card-title">Create Employee</h3>
                             </div>
                             <!-- /.card-header -->
 
@@ -52,14 +52,9 @@
                                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter Email">
                                             </div>
                                             <div class="form-group">
-                                                <label>Phone</label>
-                                                <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Enter Phone">
-                                            </div>
-                                            <div class="form-group">
                                                 <label>Role</label>
                                                 <select name="role" class="form-control">
-                                                        <option value="admin">Admin</option>
-                                                        <option value="org">Org</option>
+                                                        <option value="employee">Employee</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

@@ -50,7 +50,6 @@ class UserController extends Controller
             [
                 'name' => 'required|max:32',
                 'email' => 'email|required|max:96|unique:users,email',
-                'phone' => 'required',
                 'role' => 'required',
                 'password' => 'required',
             ]
@@ -70,15 +69,21 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')),
             'name' => $request->input('name'),
             'role' => $request->input('role'),
-            'phone' => $request->input('phone'),
             'email' => $request->input('email'),
-            'image' => $file_name,
+            'setting_id'=>auth()->user()->setting->id,
+            'user_id'=>auth()->user()->id,
+            'email_verification_token' => Str::random(32),
         ];
-
-        $user = User::create($data);
-
-        Toastr::success('User Registration Successful.', 'success', ["positionClass" => "toast-top-right"]);
-        return redirect()->back();
+        try {
+            $user=User::create($data);
+            Mail::to($user->email)->queue(new VerificationEmail($user));
+            Toastr::success('User Registration Successful. Please verify email!', 'success', ["positionClass" => "toast-top-right"]);
+            return redirect()->route('admin.user.index');
+        }catch (\Exception $exception){
+            dd($exception->getMessage());
+            Toastr::error('Something went wrong !', 'error', ["positionClass" => "toast-top-right"]);
+            return redirect()->back();
+        }
     }
 
     /**
@@ -202,30 +207,26 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         try {
-            $data = [
-                'password' => Hash::make($request->input('password')),
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'role' => 'org',
-                'email_verification_token' => Str::random(32),
-            ];
 
-            DB::beginTransaction();
-            $user = User::create($data);
             $shopData = [
-                'user_id' => $user->id,
                 'name' => $request->input('shopName'),
                 'address' => $request->input('shopAddress'),
                 'email' => $request->input('shopEmail'),
             ];
-            Setting::create($shopData);
+
+            DB::beginTransaction();
+            $setting =Setting::create($shopData);
+            $data = [
+                'setting_id'=>$setting->id,
+                'password' => Hash::make($request->input('password')),
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'role' => 'shop',
+                'email_verification_token' => Str::random(32),
+            ];
+            $user = User::create($data);
             Mail::to($user->email)->queue(new VerificationEmail($user));
             DB::commit();
-            $credentials = [
-                'email' => $user->email,
-                'password' => $request->input('password'),
-            ];
-            Mail::to($user->email)->queue(new VerificationEmail($user));
             Toastr::success('Registration Successful. Please verify your account !', 'success', ["positionClass" => "toast-top-right"]);
             return redirect()->route('login');
 

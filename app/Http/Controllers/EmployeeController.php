@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::latest()->get();
-        return view('admin.employee.index', compact('employees'));
+        $users =auth()->user()->employee;
+        return view('admin.user.index', compact('users'));
     }
 
     /**
