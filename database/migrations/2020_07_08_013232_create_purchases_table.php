@@ -20,6 +20,7 @@ class CreatePurchasesTable extends Migration
             $table->integer('supplier_id')->nullable();
             $table->integer('quantity');
             $table->double('purchase_price',8,2)->default(0.00);
+            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
             $table->timestamps();
         });
     }
