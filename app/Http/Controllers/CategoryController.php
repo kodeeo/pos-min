@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('user_id',auth()->user()->id)->latest()->get();
+        $categories = Category::where('setting_id',auth()->user()->setting->id)->latest()->get();
         return view('admin.category.index', compact('categories'));
     }
 

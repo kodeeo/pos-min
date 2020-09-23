@@ -20,7 +20,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $suppliers = Supplier::where('user_id',auth()->user()->id)->latest()->get();
+        $suppliers = Supplier::where('setting_id',auth()->user()->setting->id)->latest()->get();
         return view('admin.supplier.index', compact('suppliers'));
     }
 
@@ -75,7 +75,7 @@ class SupplierController extends Controller
 
         $supplier = new Supplier();
         $supplier->name = $request->input('name');
-        $supplier->user_id = auth()->user()->id;
+        $supplier->setting_id=auth()->user()->setting->id;
         $supplier->email = $request->input('email');
         $supplier->phone = $request->input('phone');
         $supplier->address = $request->input('address');

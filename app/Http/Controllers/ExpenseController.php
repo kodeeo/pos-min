@@ -18,7 +18,7 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $expenses = Expense::where('user_id',auth()->user()->id)->latest()->get();
+        $expenses = Expense::where('setting_id', auth()->user()->setting->id)->latest()->get();
         return view('admin.expense.index', compact('expenses'));
     }
 
@@ -35,20 +35,19 @@ class ExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $inputs = $request->except('_token');
         $rules = [
-          'name' => 'required | min:3',
-          'amount' => 'required'
+            'name' => 'required | min:3',
+            'amount' => 'required'
         ];
 
         $validator = Validator::make($inputs, $rules);
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -56,7 +55,7 @@ class ExpenseController extends Controller
 
         $expense = new Expense();
         $expense->name = $request->input('name');
-        $expense->user_id = auth()->user()->id;
+        $expense->setting_id = auth()->user()->setting->id;
         $expense->amount = $request->input('amount');
         $expense->month = $date->format('F');
         $expense->year = $date->format('Y');
@@ -70,7 +69,7 @@ class ExpenseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function show(Expense $expense)
@@ -81,7 +80,7 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function edit(Expense $expense)
@@ -92,8 +91,8 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Expense  $expense
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Expense $expense)
@@ -105,8 +104,7 @@ class ExpenseController extends Controller
         ];
 
         $validator = Validator::make($inputs, $rules);
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -121,7 +119,7 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Expense  $expense
+     * @param \App\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function destroy(Expense $expense)
@@ -136,28 +134,26 @@ class ExpenseController extends Controller
     public function today_expense()
     {
         $today = Carbon::today()->format('Y-m-d');
-        $expenses = Expense::where('user_id',auth()->user()->id)->latest()->where('date','=', $today)->get();
+        $expenses = Expense::where('setting_id',auth()->user()->setting->id)->latest()->where('date', '=', $today)->get();
         return view('admin.expense.today', compact('expenses'));
     }
 
     public function month_expense($month = null)
     {
-        if ($month == null)
-        {
+        if ($month == null) {
             $month = date('F');
         }
-        $expenses = Expense::where('user_id',auth()->user()->id)->latest()->where('month', $month)->get();
+        $expenses = Expense::where('setting_id',auth()->user()->setting->id)->latest()->where('month', $month)->get();
         return view('admin.expense.month', compact('expenses', 'month'));
     }
 
     public function yearly_expense($year = null)
     {
-        if ($year == null)
-        {
+        if ($year == null) {
             $year = date('Y');
         }
-        $expenses = Expense::where('user_id',auth()->user()->id)->latest()->where('year', $year)->get();
-        $years = Expense::where('user_id',auth()->user()->id)->select('year')->distinct()->take(12)->get();
+        $expenses = Expense::where('setting_id',auth()->user()->setting->id)->latest()->where('year', $year)->get();
+        $years = Expense::where('setting_id',auth()->user()->setting->id)->select('year')->distinct()->take(12)->get();
         return view('admin.expense.year', compact('expenses', 'year', 'years'));
     }
 

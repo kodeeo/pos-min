@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->with('category', 'supplier')->where('user_id',auth()->user()->id)->get();
+        $products = Product::latest()->with('category', 'supplier')->where('setting_id', auth()->user()->setting->id)->get();
         return view('admin.product.index', compact('products'));
     }
 
@@ -33,15 +33,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::where('user_id',auth()->user()->id)->get();
-        $suppliers = Supplier::where('user_id',auth()->user()->id)->get();
+        $categories = Category::where('setting_id', auth()->user()->setting->id)->get();
+        $suppliers = Supplier::where('setting_id', auth()->user()->setting->id)->get();
         return view('admin.product.create', compact('categories', 'suppliers'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -55,31 +55,27 @@ class ProductController extends Controller
         ];
 
         $validation = Validator::make($inputs, $rules);
-        if ($validation->fails())
-        {
+        if ($validation->fails()) {
             return redirect()->back()->withErrors($validation)->withInput();
         }
 
         $image = $request->file('image');
-        $slug =  Str::slug($request->input('name'));
-        if (isset($image))
-        {
+        $slug = Str::slug($request->input('name'));
+        if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!Storage::disk('public')->exists('product'))
-            {
+            $imageName = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            if (!Storage::disk('public')->exists('product')) {
                 Storage::disk('public')->makeDirectory('product');
             }
             $postImage = Image::make($image)->resize(480, 320)->stream();
-            Storage::disk('public')->put('product/'.$imageName, $postImage);
-        } else
-        {
+            Storage::disk('public')->put('product/' . $imageName, $postImage);
+        } else {
             $imageName = 'default.png';
         }
 
         $product = new Product();
         $product->name = $request->input('name');
-        $product->user_id = auth()->user()->id;
+        $product->setting_id = auth()->user()->setting->id;
         $product->category_id = $request->input('category_id');
 //        $product->supplier_id = $request->input('supplier_id');
         $product->code = $request->input('code');
@@ -95,7 +91,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -106,21 +102,21 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
     {
-        $categories = Category::where('user_id',auth()->user()->id)->get();
-        $suppliers = Supplier::where('user_id',auth()->user()->id)->get();
+        $categories = Category::where('setting_id',auth()->user()->setting->id)->get();
+        $suppliers = Supplier::where('setting_id',auth()->user()->setting->id)->get();
         return view('admin.product.edit', compact('product', 'categories', 'suppliers'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -129,49 +125,42 @@ class ProductController extends Controller
         $rules = [
             'name' => 'required | min:3',
             'category_id' => 'required| integer',
-            'code' => 'required|min:3|unique:products,code,'.$product->id,
+            'code' => 'required|min:3|unique:products,code,' . $product->id,
             'selling_price' => 'required',
         ];
 
         $validation = Validator::make($inputs, $rules);
-        if ($validation->fails())
-        {
+        if ($validation->fails()) {
             return redirect()->back()->withErrors($validation)->withInput();
         }
 
         $image = $request->file('image');
-        $slug =  Str::slug($request->input('name'));
-        if (isset($image))
-        {
+        $slug = Str::slug($request->input('name'));
+        if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();
-            $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            if (!Storage::disk('public')->exists('product'))
-            {
+            $imageName = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            if (!Storage::disk('public')->exists('product')) {
                 Storage::disk('public')->makeDirectory('product');
             }
 
             // delete old photo
-            if (Storage::disk('public')->exists('product/'. $product->image))
-            {
-                Storage::disk('public')->delete('product/'. $product->image);
+            if (Storage::disk('public')->exists('product/' . $product->image)) {
+                Storage::disk('public')->delete('product/' . $product->image);
             }
 
             $postImage = Image::make($image)->resize(480, 320)->stream();
-            Storage::disk('public')->put('product/'.$imageName, $postImage);
-        } else
-        {
+            Storage::disk('public')->put('product/' . $imageName, $postImage);
+        } else {
             $imageName = $product->image;
         }
 
         $buying_date = $request->input('buying_date');
-        if (!isset($buying_date))
-        {
+        if (!isset($buying_date)) {
             $buying_date = $product->buying_date;
         }
 
         $expire_date = $request->input('expire_date');
-        if (!isset($expire_date))
-        {
+        if (!isset($expire_date)) {
             $expire_date = $product->expire_date;
         }
 
@@ -189,15 +178,14 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
     {
         // delete old photo
-        if (Storage::disk('public')->exists('product/'. $product->image))
-        {
-            Storage::disk('public')->delete('product/'. $product->image);
+        if (Storage::disk('public')->exists('product/' . $product->image)) {
+            Storage::disk('public')->delete('product/' . $product->image);
         }
 
         $product->delete();
