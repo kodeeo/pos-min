@@ -13,13 +13,13 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ asset('assets/auth/images/icons/favicon.ico')}}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/auth/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/auth/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 </head>
 <body>
 
@@ -27,9 +27,8 @@
 
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="{{ asset('assets/auth/js/main.js')}}"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="{{ asset('js/toastr.min.js') }}"></script>
 {!! Toastr::message() !!}
-
 <script>
     @if($errors->any())
     @foreach($errors->all() as $error)

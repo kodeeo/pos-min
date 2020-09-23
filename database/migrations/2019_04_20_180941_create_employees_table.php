@@ -26,6 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->string('salary');
             $table->string('vacation');
             $table->string('city');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

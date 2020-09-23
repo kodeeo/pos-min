@@ -83,7 +83,7 @@ class OrderController extends Controller
     {
         $today = date('Y-m-d');
 
-        $balance = Order::where('order_date', $today)->where('user_id',auth()->user()->id)->get();
+        $balance = Order::where('order_date', $today)->where('setting_id',auth()->user()->setting->id)->get();
 
         $orders = DB::table('orders')->where('orders.setting_id',auth()->user()->setting->id)
             ->join('order_details', 'orders.id', '=', 'order_details.order_id')

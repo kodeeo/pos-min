@@ -27,6 +27,7 @@ class CreateCustomersTable extends Migration
             $table->string('account_number')->nullable();
             $table->string('bank_name')->nullable();
             $table->string('bank_branch')->nullable();
+            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
             $table->timestamps();
         });
     }
