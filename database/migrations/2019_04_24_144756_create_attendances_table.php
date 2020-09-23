@@ -15,7 +15,7 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('setting_id');
             $table->unsignedBigInteger('employee_id');
             $table->tinyInteger('attendance');
             $table->date('date');

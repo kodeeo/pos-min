@@ -78,7 +78,7 @@ class UserController extends Controller
             $user=User::create($data);
             Mail::to($user->email)->queue(new VerificationEmail($user));
             Toastr::success('User Registration Successful. Please verify email!', 'success', ["positionClass" => "toast-top-right"]);
-            return redirect()->route('admin.user.index');
+            return redirect()->route('admin.employee.index');
         }catch (\Exception $exception){
             dd($exception->getMessage());
             Toastr::error('Something went wrong !', 'error', ["positionClass" => "toast-top-right"]);
