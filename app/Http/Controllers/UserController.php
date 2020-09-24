@@ -157,8 +157,9 @@ class UserController extends Controller
         try {
             if (auth()->attempt($credentials)) {
                 if (\auth()->user()->email_verified==0){
+                    Mail::to(auth()->user()->email)->queue(new VerificationEmail(auth()->user()));
                     \auth()->logout();
-                    Toastr::error("Please verify your account !", 'error', ["positionClass" => "toast-top-right"]);
+                    Toastr::error("Please verify your account! We sent a verification mail to your email.", 'error', ["positionClass" => "toast-top-right"]);
                     return redirect()->back();
                 }
                 Toastr::success('Login Successful', 'success', ["positionClass" => "toast-top-right"]);
