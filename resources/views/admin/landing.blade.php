@@ -62,7 +62,7 @@
                     </div>
                     <!--section button-->
                     <div class="section_button  mt-10 justify-center flex">
-                        <a href="#" class="bg-transparent block border-2 border-casablanca-500 duration-500 hover:bg-casablanca-500 hover:text-casablanca-900 lg:mt-5 lg:px-5 lg:py-5 md:mt-3 md:px-3 md:py-3 mt-5 px-5 py-3 rounded sm:mt-2 sm:px-2 sm:py-2 text-casablanca-500 transition uppercase">Start your free 7-day trial</a>
+                        <a href="{{route('register')}}" class="bg-transparent block border-2 border-casablanca-500 duration-500 hover:bg-casablanca-500 hover:text-casablanca-900 lg:mt-5 lg:px-5 lg:py-5 md:mt-3 md:px-3 md:py-3 mt-5 px-5 py-3 rounded sm:mt-2 sm:px-2 sm:py-2 text-casablanca-500 transition uppercase">Register for free</a>
                     </div>
                 </div>
             </div>
