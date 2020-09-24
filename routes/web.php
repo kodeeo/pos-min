@@ -57,6 +57,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'auth'], function () {
 
     Route::get('setting', 'SettingController@index')->name('setting.index');
     Route::put('setting/{id}', 'SettingController@update')->name('setting.update');
+    Route::get('shop', 'SettingController@allShop')->name('shop');
 
     Route::resource('pos', 'PosController');
 

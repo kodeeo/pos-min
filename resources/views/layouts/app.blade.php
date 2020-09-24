@@ -10,11 +10,9 @@
 
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ asset('assets/auth/images/icons/favicon.ico')}}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/auth/css/util.css')}}">
