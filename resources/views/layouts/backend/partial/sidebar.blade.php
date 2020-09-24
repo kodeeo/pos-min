@@ -158,6 +158,38 @@
                     </a>
                 </li>
 
+                <li class="nav-item has-treeview {{ Request::is('admin/order*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('admin/order*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-first-order"></i>
+                        <p>
+                            Order
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.order.pending') }}"
+                               class="nav-link {{ Request::is('admin/order/pending') ? 'active' : '' }}">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>All Orders</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    @if(auth()->user()->role == 'shop' || auth()->user()->role == 'admin')
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.order.payment.index') }}"
+                               class="nav-link {{ Request::is('admin/order/payment') ? 'active' : '' }}">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>All Payments</p>
+                            </a>
+                        </li>
+                    </ul>
+                        @endif
+                </li>
+
+                @if(auth()->user()->role == 'shop' || auth()->user()->role == 'admin')
                 <li class="nav-item has-treeview {{ Request::is('admin/sales*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ Request::is('admin/sales*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-pie-chart"></i>
@@ -192,35 +224,7 @@
                 </li>
 
 
-                <li class="nav-item has-treeview {{ Request::is('admin/order*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('admin/order*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-first-order"></i>
-                        <p>
-                            Order
-                            <i class="right fa fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.order.pending') }}"
-                               class="nav-link {{ Request::is('admin/order/pending') ? 'active' : '' }}">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>All Orders</p>
-                            </a>
-                        </li>
 
-                    </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.order.payment.index') }}"
-                               class="nav-link {{ Request::is('admin/order/payment') ? 'active' : '' }}">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>All Payments</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
                 <li class="nav-item has-treeview {{ Request::is('admin/customer*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ Request::is('admin/customer*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-user-circle"></i>
@@ -336,7 +340,10 @@
                     </li>
                 @endif
 
+                @endif
+
                 <li class="nav-header">MENU</li>
+                @if(auth()->user()->role == 'admin' || auth()->user()->role == 'shop')
                 <li class="nav-item has-treeview">
                     <a href="{{ route('admin.setting.index') }}"
                        class="nav-link {{ Request::is('admin/setting') ? 'active' : '' }}">
@@ -346,6 +353,7 @@
                         </p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.logout') }}">
                         <i class="nav-icon fa fa-sign-out"></i> Logout
