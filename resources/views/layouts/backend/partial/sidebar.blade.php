@@ -319,7 +319,7 @@
                             </li>
                         </ul>
                     </li>
-                @else
+                @elseif(auth()->user()->role == 'shop')
                     <li class="nav-item">
                         <a href="{{ route('admin.employee.index') }}"
                            class="nav-link {{ Request::is('admin/employee') ? 'active' : '' }}">
