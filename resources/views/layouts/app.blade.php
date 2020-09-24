@@ -25,7 +25,7 @@
 
 @yield('content')
 
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="{{ asset('assets/backend/plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/auth/js/main.js')}}"></script>
 <script src="{{ asset('js/toastr.min.js') }}"></script>
 {!! Toastr::message() !!}
