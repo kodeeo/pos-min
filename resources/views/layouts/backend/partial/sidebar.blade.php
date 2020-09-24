@@ -307,14 +307,21 @@
                                 <a href="{{ route('admin.user.index') }}"
                                    class="nav-link {{ Request::is('admin/user') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>All User</p>
+                                    <p>All Users</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.shop') }}"
+                                   class="nav-link {{ Request::is('admin/user') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>All Shops</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('admin.employee.index') }}"
                                    class="nav-link {{ Request::is('admin/employee') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>Employee</p>
+                                    <p>Employees</p>
                                 </a>
                             </li>
                         </ul>

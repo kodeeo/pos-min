@@ -153,4 +153,10 @@ class SettingController extends Controller
     {
         //
     }
+
+    public function allShop()
+    {
+       $shops = Setting::orderBy('id','desc')->get();
+       return view('admin.shops.index', compact('shops'));
+    }
 }

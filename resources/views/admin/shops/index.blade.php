@@ -18,7 +18,7 @@
                     <div class="col-sm-6 offset-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Users</li>
+                            <li class="breadcrumb-item active">Shops</li>
                         </ol>
                     </div>
                 </div>
@@ -33,11 +33,6 @@
                     <div class="col-md-12">
                         <!-- general form elements -->
                         <div class="card">
-                            <div class="card-header">
-                                    <h3 class="card-title">User List</h3>
-                                <a class="btn btn-primary" href="{{ route('admin.user.create') }}">{{ __('Register') }}</a>
-                            </div>
-
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped text-center">
@@ -46,7 +41,8 @@
                                         <th>Serial</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Actions</th>
+                                        <th>Phone</th>
+                                        <th>Mobile</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
@@ -54,32 +50,18 @@
                                         <th>Serial</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Actions</th>
+                                        <th>Phone</th>
+                                        <th>Mobile</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
-                                    @foreach($users as $key => $user)
+                                    @foreach($shops as $key => $shop)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>
-                                                <a href="{{ route('admin.user.show', $user->id) }}" class="btn btn-success">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="{{ route('admin.user.edit', $user->id) }}" class="btn
-													btn-info">
-                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                </a>
-                                                {{--<button class="btn btn-danger" type="button" onclick="deleteItem({{ $user->id }})">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </button>
-                                                <form id="delete-form-{{ $user->id }}" action="{{ route('admin.user.destroy', $user->id) }}" method="post"
-                                                      style="display:none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>--}}
-                                            </td>
+                                            <td>{{ $shop->name }}</td>
+                                            <td>{{ $shop->email }}</td>
+                                            <td>{{ $shop->phone}}</td>
+                                            <td>{{ $shop->mobile}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
