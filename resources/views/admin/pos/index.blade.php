@@ -256,7 +256,10 @@
                                                          src="{{ URL::asset('storage/product/'. $product->image) }}"
                                                          alt="{{ $product->name }}">
                                                 </td>
-                                                <td>{{ number_format($product->selling_price, 2) }}</td>
+{{--                                                <td>{{ number_format($product->selling_price, 2) }}</td>--}}
+                                                <td>
+                                                    <input type="number" class="form-control" name="price" value="{{ $product->selling_price }}">
+                                                </td>
                                                 <td>
                                                     <button id="myBtn" type="submit"
                                                             class="btn btn-sm btn-success px-2">
