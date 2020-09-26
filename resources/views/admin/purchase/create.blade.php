@@ -45,15 +45,15 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Select Supplier</label>
-                                                <select class="form-control" name="supplier_id" id="">
+                                                <label for="supplier">Select Supplier<span class="required ml-1" style="color: red">*</span></label>
+                                                <select class="form-control" name="supplier_id" id="supplier">
                                                     @foreach($suppliers as $supplier)
                                                         <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Select Product</label>
+                                                <label>Select Product<span class="required ml-1" style="color: red">*</span></label>
                                                 <select class="form-control" name="product_id" id="">
                                                     @foreach($products as $product)
                                                         <option value="{{$product->id}}">{{$product->name}}</option>
@@ -62,15 +62,15 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Enter Quantity</label>
+                                                <label>Enter Quantity<span class="required ml-1" style="color: red">*</span></label>
                                                 <input class="form-control" type="text" name="quantity"
-                                                       placeholder="Enter Quantity">
+                                                       placeholder="Enter Quantity" required>
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Enter Purchase Price</label>
+                                                <label>Enter Purchase Price<span class="required ml-1" style="color: red">*</span></label>
                                                 <input class="form-control" type="text" name="purchase_price"
-                                                       placeholder="Enter Purchase Price">
+                                                       placeholder="Enter Purchase Price" required>
                                             </div>
 
 

@@ -368,7 +368,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <div class="form-group">
-                                            <label for="method">Select Method</label>
+                                            <label for="method">Select Method<span class="required ml-1" style="color: red">*</span></label>
                                             <select class="form-control" name="method" id="method">
                                                 <option value="cash">Cash</option>
                                                 <option value="mobile">Mobile Banking</option>
@@ -376,9 +376,9 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="pay">Pay</label>
+                                            <label for="pay">Pay<span class="required ml-1" style="color: red">*</span></label>
                                             <input required class="form-control pay" id="pay" type="number" name="pay"
-                                                   placeholder="Enter paid amount">
+                                                   placeholder="Enter paid amount" >
                                         </div>
                                         <div class="form-group">
                                             <label for="customer">Select Customer</label>

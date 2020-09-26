@@ -44,7 +44,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Category Name</label>
+                                                <label>Category Name<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Enter Category Name">
                                             </div>
                                         </div>

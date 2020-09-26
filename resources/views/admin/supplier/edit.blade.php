@@ -45,23 +45,23 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Name</label>
+                                                <label>Name<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="name" value="{{ $supplier->name }}" placeholder="Enter Name">
                                             </div>
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>Email<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="email" class="form-control" name="email" value="{{ $supplier->email }}"  placeholder="Enter Email">
                                             </div>
                                             <div class="form-group">
-                                                <label>Phone</label>
+                                                <label>Phone<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="phone" value="{{ $supplier->phone }}" placeholder="Enter Phone">
                                             </div>
                                             <div class="form-group">
-                                                <label>Address</label>
+                                                <label>Address<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="address" value="{{ $supplier->address }}" placeholder="Enter Address">
                                             </div>
                                             <div class="form-group">
-                                                <label>City</label>
+                                                <label>City<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="city" value="{{ $supplier->city }}" placeholder="Enter City">
                                             </div>
                                             <div class="form-group">
