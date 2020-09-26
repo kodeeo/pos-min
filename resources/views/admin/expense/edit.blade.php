@@ -45,12 +45,12 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Expense Title</label>
-                                                <input type="text" class="form-control" name="name" value="{{ $expense->name }}" placeholder="Enter Expense Title">
+                                                <label>Expense Title<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="name" value="{{ $expense->name }}" placeholder="Enter Expense Title">
                                             </div>
                                             <div class="form-group">
-                                                <label>Amount</label>
-                                                <input type="number" class="form-control" name="amount" value="{{ $expense->amount }}"  placeholder="Enter Expense Amount">
+                                                <label>Amount<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="number" class="form-control" name="amount" value="{{ $expense->amount }}"  placeholder="Enter Expense Amount">
                                             </div>
                                         </div>
                                     </div>

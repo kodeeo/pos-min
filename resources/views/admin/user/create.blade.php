@@ -45,34 +45,34 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Name</label>
-                                                <input type="text" class="form-control" name="name"
+                                                <label>Name<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="name"
                                                        value="{{ old('name') }}" placeholder="Enter Name">
                                             </div>
                                             <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control" name="email"
+                                                <label>Email<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="email" class="form-control" name="email"
                                                        value="{{ old('email') }}" placeholder="Enter Email">
                                             </div>
                                             <div class="form-group">
-                                                <label>Role</label>
+                                                <label>Role<span class="required ml-1" style="color: red">*</span></label>
                                                 <select name="role" class="form-control">
                                                     @if(auth()->user()->role == 'admin')
                                                         <option value="admin">Admin</option>
                                                     @endif
                                                     <option value="shop">Shop</option>
 
-                                                    <option value="employee">Employee</option>
+                                                    <option value="employee" selected>Employee</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" name="address"
+                                                <label>Address<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="address"
                                                        value="{{ old('address') }}" placeholder="Enter Address">
                                             </div>
                                             <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" name="password"
+                                                <label>Password<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="password" class="form-control" name="password"
                                                        value="{{ old('password') }}" placeholder="Enter Password">
                                             </div>
 

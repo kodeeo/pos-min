@@ -45,22 +45,22 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Name</label>
+                                                <label>Name<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="name"
                                                        value="{{ old('name') }}" placeholder="Enter Name">
                                             </div>
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>Email<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="email" class="form-control" name="email"
                                                        value="{{ old('email') }}" placeholder="Enter Email">
                                             </div>
                                             <div class="form-group">
-                                                <label>Phone</label>
+                                                <label>Phone<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="phone"
                                                        value="{{ old('phone') }}" placeholder="Enter Phone">
                                             </div>
                                             <div class="form-group">
-                                                <label>Address</label>
+                                                <label>Address<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="address"
                                                        value="{{ old('address') }}" placeholder="Enter Address">
                                             </div>

@@ -47,6 +47,7 @@ class CustomerController extends Controller
             'name' => 'required | min:3',
             'email' => 'required| email | unique:customers',
             'phone' => 'required | unique:customers',
+            'address' => 'required',
         ];
 
         $validation = Validator::make($inputs, $rules);
@@ -74,6 +75,12 @@ class CustomerController extends Controller
         $customer->email = $request->input('email');
         $customer->phone = $request->input('phone');
         $customer->address = $request->input('address');
+        $customer->city = $request->input('city');
+        $customer->shop_name = $request->input('shop_name');
+        $customer->account_holder = $request->input('account_holder');
+        $customer->account_number = $request->input('account_number');
+        $customer->bank_name = $request->input('bank_name');
+        $customer->bank_branch = $request->input('bank_branch');
         $customer->photo = $imageName;
         $customer->save();
 

@@ -44,51 +44,21 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Product Name</label>
-                                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Enter Product Name">
+                                                <label>Product Name<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Enter Product Name">
                                             </div>
                                             <div class="form-group">
-                                                <label>Product Category</label>
+                                                <label>Product Category<span class="required ml-1" style="color: red">*</span></label>
                                                 <select name="category_id" class="form-control">
-                                                    <option value="" disabled selected>Select a Category</option>
                                                     @foreach($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Supplier Name</label>--}}
-{{--                                                <select name="supplier_id" class="form-control">--}}
-{{--                                                    <option value="" disabled selected>Select a Supplier</option>--}}
-{{--                                                    @foreach($suppliers as $supplier)--}}
-{{--                                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
                                             <div class="form-group">
-                                                <label>Product Code</label>
-                                                <input type="text" class="form-control" name="code" value="{{ old('code') }}" placeholder="Enter Product Code">
+                                                <label>Product Code<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="code" value="{{ old('code') }}" placeholder="Enter Product Code">
                                             </div>
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Garage</label>--}}
-{{--                                                <select name="garage" class="form-control">--}}
-{{--                                                    <option value="" disabled selected>Select a Garage</option>--}}
-{{--                                                    <option value="A">Garage A</option>--}}
-{{--                                                    <option value="B">Garage B</option>--}}
-{{--                                                    <option value="C">Garage C</option>--}}
-{{--                                                    <option value="D">Garage D</option>--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Route</label>--}}
-{{--                                                <select name="route" class="form-control">--}}
-{{--                                                    <option value="" disabled selected>Select a Route</option>--}}
-{{--                                                    <option value="A">Route A</option>--}}
-{{--                                                    <option value="B">Route B</option>--}}
-{{--                                                    <option value="C">Route C</option>--}}
-{{--                                                    <option value="D">Route D</option>--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -100,21 +70,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Buying Date</label>--}}
-{{--                                                <input type="date" class="form-control" name="buying_date" value="{{ old('buying_date') }}">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Expire Date</label>--}}
-{{--                                                <input type="date" class="form-control" name="expire_date" value="{{ old('expire_date') }}">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Buying Price</label>--}}
-{{--                                                <input type="text" class="form-control" name="buying_price" value="{{ old('buying_price') }}" placeholder="Enter Buying Price">--}}
-{{--                                            </div>--}}
                                             <div class="form-group">
-                                                <label>Selling Price</label>
-                                                <input type="text" class="form-control" name="selling_price" value="{{ old('selling_price') }}" placeholder="Enter Selling Price">
+                                                <label>Selling Price<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="selling_price" value="{{ old('selling_price') }}" placeholder="Enter Selling Price">
                                             </div>
                                         </div>
                                     </div>

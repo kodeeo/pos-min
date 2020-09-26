@@ -45,38 +45,38 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Company Name</label>
-                                                <input type="text" class="form-control" name="name" value="{{ $setting->name }}" placeholder="Enter Name">
+                                                <label>Company Name<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="name" value="{{ $setting->name }}" placeholder="Enter Name">
                                             </div>
                                             <div class="form-group">
-                                                <label>Company Email</label>
-                                                <input type="email" class="form-control" name="email" value="{{ $setting->email }}" placeholder="Enter Email">
+                                                <label>Company Email<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="email" class="form-control" name="email" value="{{ $setting->email }}" placeholder="Enter Email">
                                             </div>
                                             <div class="form-group">
-                                                <label>Company Mobile</label>
-                                                <input type="text" class="form-control" name="mobile" value="{{ $setting->mobile }}" placeholder="Enter Mobile">
+                                                <label>Company Mobile<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="mobile" value="{{ $setting->mobile }}" placeholder="Enter Mobile">
                                             </div>
                                             <div class="form-group">
                                                 <label>Company Phone</label>
                                                 <input type="text" class="form-control" name="phone" value="{{ $setting->phone }}" placeholder="Enter Phone">
                                             </div>
                                             <div class="form-group">
-                                                <label>Company Address</label>
-                                                <input type="text" class="form-control" name="address" value="{{ $setting->address }}" placeholder="Enter Address">
+                                                <label>Company Address<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="address" value="{{ $setting->address }}" placeholder="Enter Address">
                                             </div>
                                             <div class="form-group">
-                                                <label>Company Tax</label>
-                                                <input type="number" class="form-control" name="tax" value="{{ $setting->tax }}" placeholder="Enter Tax">
+                                                <label>Company Tax<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="number" class="form-control" name="tax" value="{{ $setting->tax }}" placeholder="Enter Tax">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Company City</label>
-                                                <input type="text" class="form-control" name="city" value="{{ $setting->city }}" placeholder="Enter City">
+                                                <label>Company City<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="city" value="{{ $setting->city }}" placeholder="Enter City">
                                             </div>
                                             <div class="form-group">
-                                                <label>Company Country</label>
-                                                <input type="text" class="form-control" name="country" value="{{ $setting->country }}" placeholder="Enter Experience">
+                                                <label>Company Country<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="country" value="{{ $setting->country }}" placeholder="Enter Experience">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputFile">Company Logo</label>
@@ -89,8 +89,8 @@
                                                 <img width="80" height="70" class="img-rounded mt-3" src="{{ URL::asset('storage/setting/'. $setting->logo) }}" alt="{{ $setting->name }}">
                                             </div>
                                             <div class="form-group">
-                                                <label>Company Zip Code</label>
-                                                <input type="text" class="form-control" name="zip_code" value="{{ $setting->zip_code }}" placeholder="Enter Zip Code">
+                                                <label>Company Zip Code<span class="required ml-1" style="color: red">*</span></label>
+                                                <input required type="text" class="form-control" name="zip_code" value="{{ $setting->zip_code }}" placeholder="Enter Zip Code">
                                             </div>
                                         </div>
                                     </div>

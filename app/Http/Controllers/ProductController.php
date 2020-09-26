@@ -51,7 +51,7 @@ class ProductController extends Controller
             'name' => 'required | min:3',
             'category_id' => 'required| integer',
             'code' => 'required|min:3|unique:products,code',
-            'selling_price' => 'required',
+            'selling_price' => 'required|numeric',
         ];
 
         $validation = Validator::make($inputs, $rules);
