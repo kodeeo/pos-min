@@ -225,8 +225,8 @@
 
 
 
-                <li class="nav-item has-treeview {{ Request::is('customer*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('customer*') ? 'active' : '' }}">
+                <li class="nav-item has-treeview {{ Request::is('customer/*') ? 'menu-open' : '' }} {{ Request::is('customer*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('customer/*') ? 'active' : '' }} {{ Request::is('customer*') ? 'menu-open' : '' }}">
                         <i class="nav-icon fa fa-user-circle"></i>
                         <p>
                             Customer

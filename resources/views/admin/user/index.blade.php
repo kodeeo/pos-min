@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title', 'Customers')
+@section('title', 'Users')
 
 @push('css')
     <!-- DataTables -->
