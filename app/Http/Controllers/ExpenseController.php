@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Expense;
+use App\Models\Expense;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

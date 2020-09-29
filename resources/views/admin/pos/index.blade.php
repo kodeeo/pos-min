@@ -311,7 +311,7 @@
                                         <tbody>
                                         @foreach($cart_products as $product)
                                             @php
-                                                $stock = App\Stock::where('product_id',$product->id)->first();
+                                                $stock = App\Models\Stock::where('product_id',$product->id)->first();
                                             @endphp
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>

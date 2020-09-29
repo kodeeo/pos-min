@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\Purchase;
-use App\Stock;
-use App\Supplier;
+use App\Models\Product;
+use App\Models\Purchase;
+use App\Models\Stock;
+use App\Models\Supplier;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

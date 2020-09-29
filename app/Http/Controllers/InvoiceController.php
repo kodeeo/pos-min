@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
-use App\Order;
-use App\OrderDetail;
-use App\Payment;
-use App\Setting;
-use App\Stock;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Payment;
+use App\Models\Setting;
+use App\Models\Stock;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Dompdf\Exception;

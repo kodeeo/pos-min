@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Product;
-use App\Supplier;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Supplier;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

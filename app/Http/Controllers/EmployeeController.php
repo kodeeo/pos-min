@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Employee;
-use App\User;
+use App\Models\Employee;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\VerificationEmail;
-use App\Setting;
-use App\User;
+use App\Models\Setting;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
