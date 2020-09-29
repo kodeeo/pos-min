@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
-use App\Order;
-use App\OrderDetail;
-use App\Product;
-use App\Setting;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Product;
+use App\Models\Setting;
 use Brian2694\Toastr\Facades\Toastr;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;

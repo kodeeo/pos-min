@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Expense;
-use App\Order;
-use App\Setting;
+use App\Models\Expense;
+use App\Models\Order;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;

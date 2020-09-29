@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Expense;
-use App\Order;
-use App\OrderDetail;
-use App\Payment;
-use App\Setting;
+use App\Models\Expense;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Payment;
+use App\Models\Setting;
 use Barryvdh\DomPDF\Facade as PDF;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Setting;
+use App\Models\Setting;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

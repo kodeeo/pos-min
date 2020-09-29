@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Stock;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 class StockController extends Controller

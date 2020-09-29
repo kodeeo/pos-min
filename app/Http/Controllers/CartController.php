@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\Setting;
-use App\Stock;
+use App\Models\Product;
+use App\Models\Setting;
+use App\Models\Stock;
 use Brian2694\Toastr\Facades\Toastr;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;

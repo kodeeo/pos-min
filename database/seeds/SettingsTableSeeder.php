@@ -11,6 +11,6 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Setting::create();
+        App\Models\Setting::create();
     }
 }
