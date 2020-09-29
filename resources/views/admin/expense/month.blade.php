@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    {{ date('F') . 'Expenses' }}
+    {{ ucfirst($month) . '-Expenses' }}
 @endsection
 
 @push('css')
@@ -20,7 +20,7 @@
                     <div class="col-sm-6 offset-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">{{  date('F') }} Expenses</li>
+                            <li class="breadcrumb-item active">{{ucfirst($month)}} Expenses</li>
                         </ol>
                     </div>
                 </div>
