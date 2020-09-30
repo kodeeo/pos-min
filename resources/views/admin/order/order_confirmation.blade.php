@@ -51,7 +51,7 @@
                                 <div class="col-sm-4 invoice-col">
                                     From
                                     <address>
-                                        <strong>{{auth()->user()->name}}, {{$setting->name}}</strong><br>
+                                        <strong>{{auth()->user()->name}}, {{$company->name}}</strong><br>
                                         {{ $company->address }}<br>
                                         {{ $company->city }} - {{ $company->zip_code }}, {{ $company->country }}<br>
                                         Phone: {{ $company->mobile }} {{ $company->phone !== null ? $company->phone : ''  }}
@@ -140,7 +140,7 @@
                                                 <td class="text-right">{{ number_format($order->sub_total, 2) }}</td>
                                             </tr>
                                             <tr>
-                                                <th>Tax ({{$setting->tax}}%)</th>
+                                                <th>Tax ({{$company->tax}}%)</th>
                                                 <td class="text-right">{{ number_format($order->vat, 2) }}</td>
                                             </tr>
                                             <tr>
