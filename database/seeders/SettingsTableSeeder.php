@@ -1,5 +1,6 @@
 <?php
-
+namespace Database\Seeders;
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 
 class SettingsTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Setting::create();
+        Setting::create();
     }
 }
