@@ -103,8 +103,8 @@
                     </div>
                     <div class="flex">
                         <div class="f_item_article pl-5">
-                            <h1 class="text-whiteblue text-2xl font-bold">Job scheduling</h1>
-                            <p class="text-seagull-700">Schedule jobs by using any time interval or cron expression.</p>
+                            <h1 class="text-whiteblue text-2xl font-bold">User Management</h1>
+                            <p class="text-seagull-700">Manage Employees, Users, Supplier and Customers.</p>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                     </div>
                     <div class="flex">
                         <div class="f_item_article pl-5">
-                            <h1 class="text-whiteblue text-2xl font-bold">Job scheduling</h1>
-                            <p class="text-seagull-700">Schedule jobs by using any time interval or cron expression.</p>
+                            <h1 class="text-whiteblue text-2xl font-bold">POS</h1>
+                            <p class="text-seagull-700">POS System(Make a Purchase or Make a Sale)</p>
                         </div>
                     </div>
                 </div>
@@ -137,8 +137,8 @@
                     </div>
                     <div class="flex">
                         <div class="f_item_article pl-5">
-                            <h1 class="text-whiteblue text-2xl font-bold">Job scheduling</h1>
-                            <p class="text-seagull-700">Schedule jobs by using any time interval or cron expression.</p>
+                            <h1 class="text-whiteblue text-2xl font-bold">Reports</h1>
+                            <p class="text-seagull-700">Today's, Monthly and Total sales report.</p>
                         </div>
                     </div>
                 </div>
@@ -154,8 +154,8 @@
                     </div>
                     <div class="flex">
                         <div class="f_item_article pl-5">
-                            <h1 class="text-whiteblue text-2xl font-bold">Job scheduling</h1>
-                            <p class="text-seagull-700">Schedule jobs by using any time interval or cron expression.</p>
+                            <h1 class="text-whiteblue text-2xl font-bold">Barcode</h1>
+                            <p class="text-seagull-700">Print Product Barcode Labels.</p>
                         </div>
                     </div>
                 </div>
@@ -171,8 +171,8 @@
                     </div>
                     <div class="flex">
                         <div class="f_item_article pl-5">
-                            <h1 class="text-whiteblue text-2xl font-bold">Job scheduling</h1>
-                            <p class="text-seagull-700">Schedule jobs by using any time interval or cron expression.</p>
+                            <h1 class="text-whiteblue text-2xl font-bold">Stocks</h1>
+                            <p class="text-seagull-700">Fully automatic product's stock management.</p>
                         </div>
                     </div>
                 </div>
@@ -188,8 +188,8 @@
                     </div>
                     <div class="flex">
                         <div class="f_item_article pl-5">
-                            <h1 class="text-whiteblue text-2xl font-bold">Job scheduling</h1>
-                            <p class="text-seagull-700">Schedule jobs by using any time interval or cron expression.</p>
+                            <h1 class="text-whiteblue text-2xl font-bold">Manage Customers</h1>
+                            <p class="text-seagull-700">Manage Customers.</p>
                         </div>
                     </div>
                 </div>
