@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="table_area text-capitalize">
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive-sm">
                         <tbody>
                         <tr>
                             <td>Name</td>

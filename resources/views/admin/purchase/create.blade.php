@@ -43,7 +43,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-12">
                                             <div class="form-group">
                                                 <label for="supplier">Select Supplier<span class="required ml-1" style="color: red">*</span></label>
                                                 <select class="form-control" name="supplier_id" id="supplier">
