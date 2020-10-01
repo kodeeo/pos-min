@@ -43,12 +43,12 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Name</th>
-                                        <th>Image</th>
+                                        <th class="d-lg-table-cell d-none sorting">Image</th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>City</th>
-                                        <th>Type</th>
+                                        <th class="d-lg-table-cell d-none sorting">City</th>
+                                        <th class="d-lg-table-cell d-none sorting">Type</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -56,12 +56,12 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Name</th>
-                                        <th>Image</th>
+                                        <th class="d-lg-table-cell d-none" >Image</th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>City</th>
-                                        <th>Type</th>
+                                        <th class="d-lg-table-cell d-none">City</th>
+                                        <th class="d-lg-table-cell d-none">Type</th>
                                         <th>Actions</th>
                                     </tr>
                                     </tfoot>
