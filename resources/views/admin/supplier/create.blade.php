@@ -4,6 +4,7 @@
 
 @push('css')
 
+
 @endpush
 
 @section('content')
@@ -43,7 +44,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Name<span class="required ml-1" style="color: red">*</span></label>
                                                 <input type="text" class="form-control" name="name"

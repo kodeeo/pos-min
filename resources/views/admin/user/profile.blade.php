@@ -17,7 +17,6 @@
         }
 
         .user_mail {
-            padding: 50px 200px;
             color: #00B9B5;
         }
 
@@ -63,20 +62,25 @@
         <div class="user_pro mt-2">
             <div class="container">
                 <div class="row">
-                    <div class="user_info col-md-6 col-sm-6">
-                        <img class="float-left" src="{{ URL::asset('storage/setting/'. $setting->logo) }}" alt="Logo">
-                        <div class="user_mail font-weight-bold">
-                            <p>{{auth()->user()->name}}</p>
-                            <p>{{auth()->user()->email}}</p>
+                    <div class="col-md-6 user_info">
+                        <div class="img_pro float-left">
+                            <img src="{{ URL::asset('storage/setting/'. $setting->logo) }}" alt="Logo">
                         </div>
                     </div>
-                    <div class="user_edit col-md-6 col-sm-6">
+                    <div class=" col-md-6 user_mail font-weight-bold float-right text-right pr-3">
+                        <p>{{auth()->user()->name}}</p>
+                        <p>{{auth()->user()->email}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right user_edit">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn float-right shadow-none text-decoration-none"
+                        <button type="button" class="btn float-right shadow-none text-decoration-none mb-3"
                                 data-toggle="modal" data-target="#exampleModal">
                             Edit Profile
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -90,13 +94,13 @@
                     </div>
                     <div class="col-md-6 shop_btn">
                         <a href="{{ route('admin.setting.index') }}"
-                           class="btn float-right shadow-none text-decoration-none mt-2">Edit</a>
+                           class="btn float-right shadow-none text-decoration-none my-3">Edit</a>
                     </div>
 
                 </div>
 
                 <div class="table_area text-capitalize">
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive-sm">
                         <tbody>
                         <tr>
                             <td>Name</td>
