@@ -215,7 +215,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class=" table-responsive table table-bordered table-striped text-center">
+                                <table id="example1" class="dataTable lg:table-responsive-none table table-bordered table-responsive-sm table-striped text-center">
                                     <thead>
                                     <tr>
                                         <th>Code</th>
