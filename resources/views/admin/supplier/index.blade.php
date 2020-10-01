@@ -38,7 +38,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped text-center table-responsive-xl">
+                                <table id="example1" class="dataTable table table-bordered table-responsive-sm table-responsive-xl table-striped text-center">
                                     <thead>
                                     <tr>
                                         <th>Serial</th>
