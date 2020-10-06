@@ -6,6 +6,7 @@ use App\Models\Expense;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Setting;
 use Barryvdh\DomPDF\Facade as PDF;
 use Brian2694\Toastr\Facades\Toastr;
@@ -81,20 +82,17 @@ class OrderController extends Controller
     // for sales report
     public function today_sales()
     {
-        $today = date('Y-m-d');
+        $data = Product::with(['orderDetail'=> function ($query){
+        $query->whereDate('created_at', '>=', date('Y-m-d'));}
+        ])->orderBy('id','desc')->get();
+        $products = [];
+        foreach ($data as $key=>$item) {
 
-        $balance = Order::where('order_date', $today)->where('setting_id',auth()->user()->setting->id)->get();
-
-        $orders = DB::table('orders')->where('orders.setting_id',auth()->user()->setting->id)
-            ->join('order_details', 'orders.id', '=', 'order_details.order_id')
-            ->join('products', 'order_details.product_id', '=', 'products.id')
-//            ->join('customers', 'orders.customer_id', '=', 'customers.id')
-            ->select( 'products.name AS product_name', 'products.image', 'order_details.*')
-            ->where('orders.order_date' , '=', $today)
-            ->orderBy('order_details.created_at', 'desc')
-            ->get();
-
-        return view('admin.sales.today', compact('orders', 'balance'));
+            if ( $item->orderDetail->count()!=0){
+                $products[]=$item;
+            }
+        }
+        return view('admin.sales.today', compact('products'));
     }
 
     public function monthly_sales($month = null)
@@ -106,20 +104,18 @@ class OrderController extends Controller
         } else {
             $month = date('m', strtotime($month));
         }
+        $data = Product::with(['orderDetail'=> function ($query) use($month){
+            $query->whereMonth('created_at', '=', $month);}
+        ])->orderBy('id','desc')->get();
+        $products = [];
+        foreach ($data as $key=>$item) {
 
-        $balance = Order::whereMonth('order_date', $month)->where('setting_id',auth()->user()->setting->id)->get();
+            if ( $item->orderDetail->count()!=0){
+                $products[]=$item;
+            }
+        }
 
-        $orders = DB::table('orders')
-            ->join('order_details', 'orders.id', '=', 'order_details.order_id')
-            ->join('products', 'order_details.product_id', '=', 'products.id')
-//            ->join('customers', 'orders.customer_id', '=', 'customers.id')
-            ->select( 'products.name AS product_name', 'products.image', 'order_details.*')
-            ->whereMonth('orders.created_at' , '=', $month)
-            ->where('orders.setting_id',auth()->user()->setting->id)
-            ->orderBy('order_details.created_at', 'desc')
-            ->get();
-
-        return view('admin.sales.month', compact('orders', 'month', 'balance'));
+        return view('admin.sales.month', compact('orders', 'month', 'balance','products'));
     }
 
     public function total_sales()

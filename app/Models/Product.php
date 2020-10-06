@@ -20,4 +20,8 @@ class Product extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
+    public function orderDetail()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }
