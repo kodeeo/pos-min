@@ -62,6 +62,9 @@
                                         <th>Image</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
+                                        <th>Purchase Price</th>
+                                        <th>Profit/ <span class="text-danger">Loss</span> </th>
+                                        <th>Profit/ <span class="text-danger">Loss</span>(%)</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
@@ -71,6 +74,9 @@
                                         <th>Image</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
+                                        <th>Purchase Price</th>
+                                        <th>Profit/ <span class="text-danger">Loss</span> </th>
+                                        <th>Profit/ <span class="text-danger">Loss</span>(%)</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
@@ -85,6 +91,13 @@
 {{--                                            <td>{{ $order->customer_name }}</td>--}}
                                             <td>{{ $product->orderDetail->sum('quantity') }}</td>
                                             <td>{{ number_format($product->orderDetail->sum('total'), 2) }}</td>
+                                            <td>{{ number_format($product->orderDetail->sum('purchase_price'), 2) }}</td>
+                                            <td class="{{$product->orderDetail->sum('profit')<0?'text-danger':''}}">
+                                                {{ number_format($product->orderDetail->sum('profit'), 2) }}
+                                            </td>
+                                            <td class="{{$product->orderDetail->sum('profit')<0?'text-danger':''}}">
+                                                {{ number_format(($product->orderDetail->sum('profit') / $product->orderDetail->sum('purchase_price')) * 100).'%' }}
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

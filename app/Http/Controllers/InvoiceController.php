@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Payment;
+use App\Models\Purchase;
 use App\Models\Setting;
 use App\Models\Stock;
 use Brian2694\Toastr\Facades\Toastr;
@@ -85,7 +86,7 @@ class InvoiceController extends Controller
                 $order = new Order();
 //        $order->customer_id = $request->input('customer_id');
                 $order->payment_status = $payment_status;
-                $order->setting_id=auth()->user()->setting->id;
+                $order->setting_id = auth()->user()->setting->id;
                 $order->customer_id = $customer_id;
                 $order->invoice_no = Order::invoiceNumber();
                 $order->pay = $pay;
@@ -102,19 +103,25 @@ class InvoiceController extends Controller
                 $order_id = $order->id;
                 $contents = Cart::content();
                 foreach ($contents as $content) {
+                    $purchase = Purchase::where('product_id', $content->id)->orderBy('created_at', 'desc')->first();
+                    $purchase_price = $purchase->purchase_price * $content->qty;
+                    $profit = $content->total - $purchase_price;
+
                     $order_detail = new OrderDetail();
                     $order_detail->order_id = $order_id;
                     $order_detail->product_id = $content->id;
                     $order_detail->quantity = $content->qty;
                     $order_detail->unit_cost = $content->price;
                     $order_detail->total = $content->total;
+                    $order_detail->purchase_price = $purchase_price;
+                    $order_detail->profit = $profit;
                     $order_detail->save();
 
                     Stock::where('product_id', $content->id)->decrement('quantity', $content->qty);
                 }
                 Payment::create([
                     'order_id' => $order_id,
-                    'setting_id'=>auth()->user()->setting->id,
+                    'setting_id' => auth()->user()->setting->id,
                     'method' => $request->input('method'),
                     'pay' => $pay,
                     'return' => $return,
