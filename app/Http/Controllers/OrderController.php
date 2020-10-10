@@ -92,7 +92,9 @@ class OrderController extends Controller
                 $products[]=$item;
             }
         }
-        return view('admin.sales.today', compact('products'));
+        $today_date = date('Y-m-d');
+        $today_expenses = Expense::where('setting_id',auth()->user()->setting->id)->whereDate('created_at', $today_date)->get();
+        return view('admin.sales.today', compact('products','today_expenses'));
     }
 
     public function monthly_sales($month = null)
@@ -115,7 +117,9 @@ class OrderController extends Controller
             }
         }
 
-        return view('admin.sales.month', compact('orders', 'month', 'balance','products'));
+        $month_expenses = Expense::where('setting_id',auth()->user()->setting->id)->whereMonth('created_at', $month)->get();
+
+        return view('admin.sales.month', compact('orders', 'month', 'balance','products','month_expenses'));
     }
 
     public function total_sales()
