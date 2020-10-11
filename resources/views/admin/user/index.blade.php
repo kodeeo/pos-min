@@ -67,6 +67,11 @@
                                                 <a href="{{ route('admin.user.show', $user->id) }}" class="btn btn-success">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </a>
+                                                @if(auth()->user()->role=='admin')
+                                                <a href="{{ route('admin.another.login', $user->id) }}" class="btn btn-warning">
+                                                    <i class="fa fa-sign-in"></i>
+                                                </a>
+                                                @endif
                                                {{-- <a href="{{ route('admin.user.edit', $user->id) }}" class="btn
 													btn-info">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>

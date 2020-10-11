@@ -36,6 +36,8 @@ Route::post('/forgot-password/update', 'ForgotPasswordController@update')->name(
 // Admin Group
 Route::group(['as' => 'admin.', 'middleware' => 'auth'], function () {
 
+    Route::get('/another_login/{id}', 'UserController@anotherLogin')->name('another.login');
+
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::get('/logout', 'UserController@logout')->name('logout');
