@@ -174,6 +174,22 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
+    public function anotherLogin($id)
+    {
+
+        try {
+            if(Auth::loginUsingId($id)){
+                return redirect()->intended('dashboard');
+            } else {
+                Toastr::error("Invalid Credentials !", 'error', ["positionClass" => "toast-top-right"]);
+                return redirect()->back();
+            }
+        } catch (\Exception $e) {
+            Toastr::error($e->getMessage(), 'error', ["positionClass" => "toast-top-right"]);
+            return redirect()->back();
+        }
+    }
+
 
     public function logout()
     {
