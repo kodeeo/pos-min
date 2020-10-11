@@ -62,6 +62,9 @@
                                         <th>Image</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
+                                        <th>Purchase Price</th>
+                                        <th>Profit/ <span class="text-danger">Loss</span> </th>
+                                        <th>Profit/ <span class="text-danger">Loss</span>(%)</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
@@ -71,9 +74,16 @@
                                         <th>Image</th>
                                         <th>Quantity</th>
                                         <th>Total</th>
+                                        <th>Purchase Price</th>
+                                        <th>Profit/ <span class="text-danger">Loss</span> </th>
+                                        <th>Profit/ <span class="text-danger">Loss</span>(%)</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
+                                    @php
+                                    $totalPrice=0;
+                                    $totalProfit=0;
+                                    @endphp
 
                                     @foreach($products as $product)
                                         <tr>
@@ -85,10 +95,54 @@
 {{--                                            <td>{{ $order->customer_name }}</td>--}}
                                             <td>{{ $product->orderDetail->sum('quantity') }}</td>
                                             <td>{{ number_format($product->orderDetail->sum('total'), 2) }}</td>
+                                            <td>{{ number_format($product->orderDetail->sum('purchase_price'), 2) }}</td>
+                                            <td class="{{$product->orderDetail->sum('profit')<0?'text-danger':''}}">
+                                                {{ number_format($product->orderDetail->sum('profit'), 2) }}
+                                            </td>
+                                            <td class="{{$product->orderDetail->sum('profit')<0?'text-danger':''}}">
+                                                {{ number_format(($product->orderDetail->sum('profit') / $product->orderDetail->sum('purchase_price')) * 100).'%' }}
+                                            </td>
                                         </tr>
+                                        @php
+                                            $totalPrice+=number_format($product->orderDetail->sum('total'), 2);
+                                            $totalProfit+=number_format($product->orderDetail->sum('profit'), 2);
+                                        @endphp
                                     @endforeach
                                     </tbody>
                                 </table>
+
+                                <div class="row">
+                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4">
+                                        <table  class="table table-bordered table-striped text-center table-responsive-sm mt-3">
+                                            <tbody>
+                                            <tr>
+                                                <td>Total Sale</td>
+                                                <td>{{ $totalPrice }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Profit/ <span class="text-danger">Loss</span> </td>
+                                                <td class="{{$totalProfit<0?'text-danger':''}}">
+                                                    {{ $totalProfit }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Expense</td>
+                                                <td>{{ $today_expenses->sum('amount') }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Net Profit/ <span class="text-danger">Loss</span> </td>
+                                                <td class="{{$totalProfit- $today_expenses->sum('amount') <0?'text-danger':''}}">
+                                                    {{ $totalProfit- $today_expenses->sum('amount')}}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
                             </div>
                             <!-- /.card-body -->
                         </div>
