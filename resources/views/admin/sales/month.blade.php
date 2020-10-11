@@ -114,7 +114,7 @@
                                                 {{ number_format($product->orderDetail->sum('profit'), 2) }}
                                             </td>
                                             <td class="{{$product->orderDetail->sum('profit')<0?'text-danger':''}}">
-                                                {{ number_format(($product->orderDetail->sum('profit') / $product->orderDetail->sum('purchase_price')) * 100).'%' }}
+                                                {{$product->orderDetail->sum('profit')>0 ||$product->orderDetail->sum('purchase_price')>0? number_format(($product->orderDetail->sum('profit') / $product->orderDetail->sum('purchase_price')) * 100).'%':'0' }}
                                             </td>
                                         </tr>
                                         @php
