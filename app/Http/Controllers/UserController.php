@@ -76,7 +76,7 @@ class UserController extends Controller
         ];
         try {
             $user=User::create($data);
-            Mail::to($user->email)->queue(new VerificationEmail($user));
+            Mail::to($user->email)->send(new VerificationEmail($user));
             Toastr::success('User Registration Successful. Please verify email!', 'success', ["positionClass" => "toast-top-right"]);
             return redirect()->route('admin.employee.index');
         }catch (\Exception $exception){
@@ -157,7 +157,7 @@ class UserController extends Controller
         try {
             if (auth()->attempt($credentials)) {
                 if (\auth()->user()->email_verified==0){
-                    Mail::to(auth()->user()->email)->queue(new VerificationEmail(auth()->user()));
+                    Mail::to(auth()->user()->email)->send(new VerificationEmail(auth()->user()));
                     \auth()->logout();
                     Toastr::error("Please verify your account! We sent a verification mail to your email.", 'error', ["positionClass" => "toast-top-right"]);
                     return redirect()->back();
@@ -242,7 +242,7 @@ class UserController extends Controller
                 'email_verification_token' => Str::random(32),
             ];
             $user = User::create($data);
-            Mail::to($user->email)->queue(new VerificationEmail($user));
+            Mail::to($user->email)->send(new VerificationEmail($user));
             DB::commit();
             Toastr::success('Registration Successful. Please verify your account !', 'success', ["positionClass" => "toast-top-right"]);
             return redirect()->route('login');

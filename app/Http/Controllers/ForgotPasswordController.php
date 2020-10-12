@@ -8,6 +8,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class ForgotPasswordController extends Controller
 {
@@ -25,7 +26,7 @@ class ForgotPasswordController extends Controller
         $email = $request->input('email');
         $user = User::where('email', $email)->first();
         if ($user) {
-            $user->update(['email_verification_token' => str_random(32),]);
+            $user->update(['email_verification_token' => Str::random(32)]);
             Mail::to($user->email)->send(new PasswordEmail($user));
             Toastr::success("Password reset link will be sent to your email...!", 'success', ["positionClass" => "toast-top-right"]);
             return redirect()->route('login');
